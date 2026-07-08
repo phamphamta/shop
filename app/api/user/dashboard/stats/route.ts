@@ -1,0 +1,152 @@
+import { NextRequest, NextResponse } from "next/server";
+import { currentUser } from "@clerk/nextjs/server";
+import {
+  getUserOrders,
+  getUserWishlist,
+  getUserNotifications,
+  getUserByClerkId,
+} from "@/sanity/queries/userQueries";
+
+interface Notification {
+  read: boolean;
+  id: string;
+  title: string;
+  message: string;
+  sentAt: string;
+}
+
+interface Order {
+  _id: string;
+  orderNumber: string;
+  orderDate: string;
+  status: string;
+  totalPrice?: number;
+}
+
+interface WishlistItem {
+  _id: string;
+  addedAt: string;
+  name?: string;
+  product?: {
+    name: string;
+  };
+}
+
+export async function GET(request: NextRequest) {
+  try {
+    const user = await currentUser();
+
+    if (!user) {
+      return NextResponse.json({ error: "Không có quyền truy cập" }, { status: 401 });
+    }
+
+    // Fetch real data from Sanity
+    const [userOrders, userWishlist, userNotifications, userData] =
+      await Promise.all([
+        getUserOrders(user.id),
+        getUserWishlist(user.id),
+        getUserNotifications(user.id),
+        getUserByClerkId(user.id),
+      ]);
+
+    // Calculate stats from real data
+    const stats = {
+      ordersCount: userOrders?.length || 0,
+      wishlistCount: userWishlist?.length || 0,
+      notificationsCount: userNotifications?.length || 0,
+      unreadNotifications:
+        userNotifications?.filter((n: Notification) => !n.read)?.length || 0,
+      rewardPoints: userData?.rewardPoints || 0,
+      walletBalance: userData?.walletBalance || 0,
+    };
+
+    // Create recent activity from real data
+    const recentActivity = [];
+
+    // Add recent orders to activity
+    if (userOrders && userOrders.length > 0) {
+      const recentOrders = userOrders
+        .sort(
+          (a: Order, b: Order) =>
+            new Date(b.orderDate).getTime() - new Date(a.orderDate).getTime()
+        )
+        .slice(0, 2);
+
+      recentOrders.forEach((order: Order) => {
+        recentActivity.push({
+          id: `order-${order._id}`,
+          title: `Đơn hàng ${order.status === "delivered"
+            ? "Đã giao thành công"
+            : order.status === "shipped"
+              ? "Đang vận chuyển"
+              : "Đã đặt"
+            }`,
+          description: `Đơn hàng #${order.orderNumber} ${order.status === "delivered"
+            ? "đã được giao thành công"
+            : order.status === "shipped"
+              ? "đang trên đường vận chuyển đến bạn"
+              : "đã được đặt thành công"
+            }`,
+          timestamp: order.orderDate,
+          type: "order" as const,
+        });
+      });
+    }
+
+    // Add recent wishlist items to activity
+    if (userWishlist && userWishlist.length > 0) {
+      const recentWishlistItem = userWishlist[0];
+      if (recentWishlistItem) {
+        recentActivity.push({
+          id: `wishlist-${recentWishlistItem._id}`,
+          title: "Đã thêm sản phẩm vào danh sách yêu thích",
+          description: `Đã thêm ${recentWishlistItem.name} vào danh sách yêu thích của bạn`,
+          timestamp: new Date(Date.now() - 5 * 60 * 60 * 1000).toISOString(), // Approximate time
+          type: "wishlist" as const,
+        });
+      }
+    }
+
+    // Add recent notifications to activity
+    if (userNotifications && userNotifications.length > 0) {
+      const recentNotifications = userNotifications
+        .sort(
+          (a: Notification, b: Notification) =>
+            new Date(b.sentAt).getTime() - new Date(a.sentAt).getTime()
+        )
+        .slice(0, 1);
+
+      recentNotifications.forEach((notification: Notification) => {
+        recentActivity.push({
+          id: `notification-${notification.id}`,
+          title: notification.title,
+          description:
+            notification.message.length > 80
+              ? notification.message.substring(0, 80) + "..."
+              : notification.message,
+          timestamp: notification.sentAt,
+          type: "notification" as const,
+        });
+      });
+    }
+
+    // Sort activity by timestamp (newest first) and limit to 4 items
+    recentActivity.sort(
+      (a, b) =>
+        new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime()
+    );
+    const limitedActivity = recentActivity.slice(0, 4);
+
+    return NextResponse.json({
+      success: true,
+      stats,
+      recentActivity: limitedActivity,
+    });
+  } catch (error) {
+    console.error("Error fetching dashboard stats:", error);
+    return NextResponse.json(
+      { error: "Lấy thông số tổng quan thất bại" },
+      { status: 500 }
+    );
+  }
+}
