@@ -31,6 +31,6 @@ export default function robots(): MetadataRoute.Robots {
         ],
       },
     ],
-    sitemap: "https://shopcartpro.reactbd.org/sitemap.xml",
+    sitemap: "https://shopcartvn.vercel.app/sitemap.xml",
   };
 }
