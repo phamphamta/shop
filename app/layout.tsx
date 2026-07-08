@@ -91,8 +91,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
-    // Add other verification codes as needed
+    google: "ks5p73t0IJaeod4lghmwspmEYg-9QwoatNixBeywJ4c",
   },
   alternates: {
     canonical: "https://shopcartvn.vercel.app",
