@@ -28,7 +28,7 @@ const opensans = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://shopcartpro.reactbd.org"),
+  metadataBase: new URL("https://shopcartvn.vercel.app"),
   title: {
     template: "%s | ShopCart - Mua sắm trực tuyến cao cấp",
     default: "ShopCart - Điểm đến mua sắm trực tuyến tin cậy của bạn",
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "vi_VN",
-    url: "https://shopcartpro.reactbd.org",
+    url: "https://shopcartvn.vercel.app",
     siteName: "ShopCart",
     title: "ShopCart - Điểm đến mua sắm trực tuyến tin cậy của bạn",
     description:
@@ -95,7 +95,7 @@ export const metadata: Metadata = {
     // Add other verification codes as needed
   },
   alternates: {
-    canonical: "https://shopcartpro.reactbd.org",
+    canonical: "https://shopcartvn.vercel.app",
   },
 };
 
