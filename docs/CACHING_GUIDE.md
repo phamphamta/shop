@@ -479,6 +479,7 @@ const getAddresses = async () => {
 ```bash
 curl -I https://shopcartpro.reactbd.org/
 
+
 # Look for:
 # Cache-Control: s-maxage=600, stale-while-revalidate
 # X-Vercel-Cache: HIT (cached) or MISS (not cached)

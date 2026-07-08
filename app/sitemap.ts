@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 import { client } from "@/sanity/lib/client";
 
-const BASE_URL = "https://shopcartvn.vercel.app/";
+const BASE_URL = "https://shopcartvn.vercel.app";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Fetch all products
