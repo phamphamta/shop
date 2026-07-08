@@ -292,14 +292,20 @@ const SingleBlogPage = async ({
                                 {children}
                               </code>
                             ),
-                            link: ({ value, children }) => (
-                              <Link
-                                href={value.href}
-                                className="font-medium text-shop_light_green hover:text-shop_dark_green underline decoration-shop_light_green underline-offset-4 hover:decoration-shop_dark_green transition-colors"
-                              >
-                                {children}
-                              </Link>
-                            ),
+                            link: ({ value, children }) => {
+                              if (!value?.href) {
+                                return <>{children}</>;
+                              }
+
+                              return (
+                                <Link
+                                  href={value.href}
+                                  className="font-medium text-shop_light_green hover:text-shop_dark_green"
+                                >
+                                  {children}
+                                </Link>
+                              );
+                            },
                           },
                         }}
                       />

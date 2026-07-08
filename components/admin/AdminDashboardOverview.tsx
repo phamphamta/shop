@@ -139,9 +139,8 @@ const AdminDashboardOverview = () => {
     },
     {
       title: "Account Requests",
-      description: `${
-        accountRequests?.totalPendingRequests || 0
-      } pending requests`,
+      description: `${accountRequests?.totalPendingRequests || 0
+        } pending requests`,
       icon: UserCheck,
       href: "/admin/account-requests",
       color: "from-amber-500 to-orange-600",

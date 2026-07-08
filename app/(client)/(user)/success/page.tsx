@@ -185,9 +185,9 @@ const SuccessPage = () => {
                             <div className="flex items-center gap-4 text-sm text-gray-600">
                               <div className="flex items-center gap-1">
                                 <Calendar className="w-3 h-3" />
-                                {order.orderDate
+                                {(order as any).orderDate
                                   ? format(
-                                    new Date(order.orderDate),
+                                    new Date((order as any).orderDate),
                                     "dd/MM/yyyy",
                                     { locale: vi }
                                   )
