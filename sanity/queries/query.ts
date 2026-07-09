@@ -133,8 +133,10 @@ const RELATED_PRODUCTS_QUERY = defineQuery(
   }`
 );
 
-const BRAND_QUERY = defineQuery(`*[_type == "product" && slug.current == $slug]{
-"brandName": brand->title
+const BRAND_QUERY = defineQuery(`*[_type == "product" && slug.current == $slug][0]{
+  "_id": brand->_id,
+  "brandName": brand->title,
+  "brandSlug": brand->slug
 }`);
 
 export {

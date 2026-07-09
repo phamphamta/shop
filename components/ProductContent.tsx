@@ -74,7 +74,19 @@ const ProductContent = ({
             slug: product?.slug?.current || "",
           }}
           productCategories={product?.categories}
-          productBrand={product?.brand}
+          productBrand={
+            // Prefer dereferenced brand from product query (has full title+slug)
+            (product?.brand && typeof product.brand === "object" && "title" in product.brand)
+              ? product.brand
+              // Fallback to separately-fetched brand (getBrand) which now has brandName + brandSlug
+              : brand
+                ? {
+                    _id: (brand as any)._id || "",
+                    title: (brand as any).brandName || "",
+                    slug: (brand as any).brandSlug || null,
+                  }
+                : null
+          }
         />
 
         <div className="flex flex-col md:flex-row gap-10 pb-6">
