@@ -18,6 +18,8 @@ import { ArrowLeft, ArrowRight, Package, Tag, Grid3X3, Filter } from "lucide-rea
 import BrandProducts from "@/components/product/BrandProducts";
 import { generateBreadcrumbSchema } from "@/lib/seo";
 
+export const revalidate = 10;
+
 type Props = {
   params: Promise<{ slug: string }>;
 };

@@ -137,7 +137,7 @@ const getAllBrands = unstable_cache(
     }
   },
   ["all-brands"],
-  { revalidate: 3600, tags: ["brands"] }
+  { revalidate: 10, tags: ["brands"] }
 );
 
 /**
