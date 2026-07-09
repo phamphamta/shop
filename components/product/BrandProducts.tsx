@@ -37,7 +37,7 @@ const BrandProducts = ({ brands, slug, initialProducts }: Props) => {
         const querySlug = matchedBrand?.slug?.current || currentSlug;
 
         const query = `
-          *[_type == "product" && brand->slug.current == $slug] {
+          *[_type == "product" && lower(brand->slug.current) == lower($slug)] {
             ...,
             brand->{
               _id,

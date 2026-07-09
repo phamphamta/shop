@@ -50,7 +50,7 @@ const BrandPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
 
   // Fetch products for the current brand
   const query = `
-    *[_type == "product" && brand->slug.current == $slug] {
+    *[_type == "product" && lower(brand->slug.current) == lower($slug)] {
       ...,
       brand->{
         _id,
