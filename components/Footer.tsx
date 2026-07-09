@@ -5,6 +5,7 @@ import { contactConfig } from "@/config/contact";
 import FooterTop from "./layout/FooterTop";
 import SocialMedia from "./common/SocialMedia";
 import NewsletterForm from "./NewsletterForm";
+import Script from "next/script";
 
 const Footer = () => {
   return (
@@ -82,6 +83,21 @@ const Footer = () => {
             </span>
             . All rights reserved.
           </p>
+          <div className="mt-3 flex justify-center items-center">
+            <a
+              href="//www.dmca.com/Protection/Status.aspx?ID=05b9a588-ef47-46f4-a63d-9b648ca21d06"
+              title="DMCA.com Protection Status"
+              className="dmca-badge"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://images.dmca.com/Badges/dmca_protected_sml_120m.png?ID=05b9a588-ef47-46f4-a63d-9b648ca21d06"
+                alt="DMCA.com Protection Status"
+              />
+            </a>
+          </div>
+          <Script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js" strategy="afterInteractive" />
         </div>
       </div>
     </footer>
