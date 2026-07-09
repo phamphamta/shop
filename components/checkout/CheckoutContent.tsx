@@ -181,14 +181,14 @@ export function CheckoutContent() {
         setSelectedAddress(orderAddress);
 
         // Show success message
-        toast.success("Ready for Checkout! 🛒", {
+        toast.success("Sẵn sàng thanh toán! 🛒", {
           description:
-            "Complete your order by selecting a payment method below",
+            "Hoàn tất đơn hàng bằng cách chọn phương thức thanh toán bên dưới",
           duration: 4000,
         });
       } catch (error) {
         console.error("Error parsing address from URL:", error);
-        toast.error("Error loading address from cart");
+        toast.error("Lỗi khi tải địa chỉ từ giỏ hàng");
       }
     }
   }, [searchParams]);
@@ -208,7 +208,7 @@ export function CheckoutContent() {
 
   const handlePayNowClick = () => {
     if (!selectedAddress) {
-      toast.error("Please select a shipping address");
+      toast.error("Vui lòng chọn địa chỉ giao hàng");
       return;
     }
     setShowPaymentModal(true);
@@ -231,7 +231,7 @@ export function CheckoutContent() {
     paymentGateway?: "stripe" | "clerk"
   ) => {
     if (!selectedAddress) {
-      toast.error("Please select a shipping address");
+      toast.error("Vui lòng chọn địa chỉ giao hàng");
       return;
     }
 
@@ -286,7 +286,7 @@ export function CheckoutContent() {
     return (
       <div className="text-center py-10">
         <p className="text-muted-foreground">
-          Please sign in to proceed with checkout.
+          Vui lòng đăng nhập để tiến hành thanh toán.
         </p>
       </div>
     );
@@ -297,9 +297,9 @@ export function CheckoutContent() {
     return (
       <div className="text-center py-10">
         <Loader2 className="w-8 h-8 mx-auto mb-4 animate-spin text-primary" />
-        <h2 className="text-xl font-semibold mb-2">Processing your order...</h2>
+        <h2 className="text-xl font-semibold mb-2">Đang xử lý đơn hàng của bạn...</h2>
         <p className="text-muted-foreground">
-          Please wait while we redirect you to complete your payment.
+          Vui lòng chờ trong giây lát khi chúng tôi chuyển hướng bạn để hoàn tất thanh toán.
         </p>
       </div>
     );
@@ -316,12 +316,12 @@ export function CheckoutContent() {
     return (
       <div className="text-center py-10 animate-in fade-in-0 duration-500">
         <ShoppingBag className="w-16 h-16 mx-auto mb-4 text-muted-foreground" />
-        <h2 className="text-2xl font-semibold mb-2">Your cart is empty</h2>
+        <h2 className="text-2xl font-semibold mb-2">Giỏ hàng của bạn đang trống</h2>
         <p className="text-muted-foreground mb-4">
-          Add some products to continue with checkout
+          Hãy thêm sản phẩm để tiếp tục thanh toán
         </p>
         <Button asChild className="bg-primary hover:bg-primary/90">
-          <a href="/shop">Continue Shopping</a>
+          <a href="/shop">Tiếp tục mua sắm</a>
         </Button>
       </div>
     );
@@ -336,7 +336,7 @@ export function CheckoutContent() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <CreditCard className="w-5 h-5" />
-              Payment Method
+              Phương thức thanh toán
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -357,10 +357,10 @@ export function CheckoutContent() {
                   <Label htmlFor="cod" className="cursor-pointer">
                     <div className="flex items-center gap-2 font-medium">
                       <Truck className="w-4 h-4" />
-                      Cash on Delivery
+                      Thanh toán khi giao hàng (COD)
                     </div>
                     <p className="text-sm text-muted-foreground mt-1">
-                      Pay when your order is delivered to your doorstep
+                      Thanh toán bằng tiền mặt khi đơn hàng được giao đến tận tay bạn
                     </p>
                   </Label>
                 </div>
@@ -376,10 +376,10 @@ export function CheckoutContent() {
                   <Label htmlFor="stripe" className="cursor-pointer">
                     <div className="flex items-center gap-2 font-medium">
                       <CreditCard className="w-4 h-4" />
-                      Credit/Debit Card
+                      Thẻ tín dụng / Thẻ ghi nợ
                     </div>
                     <p className="text-sm text-muted-foreground mt-1">
-                      Pay securely with your credit or debit card via Stripe
+                      Thanh toán an toàn bằng thẻ tín dụng hoặc thẻ ghi nợ của bạn qua Stripe
                     </p>
                   </Label>
                 </div>
@@ -392,7 +392,7 @@ export function CheckoutContent() {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <MapPin className="w-5 h-5" />
-              Shipping Address
+              Địa chỉ nhận hàng
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -436,7 +436,7 @@ export function CheckoutContent() {
                       )}
                     </div>
                     <div className="flex items-center gap-1 text-xs text-green-600 font-medium bg-green-50 px-2 py-1 rounded">
-                      ✓ Selected
+                      ✓ Đã chọn
                     </div>
                   </div>
                 </div>
@@ -455,7 +455,7 @@ export function CheckoutContent() {
         {/* Order Items */}
         <Card>
           <CardHeader>
-            <CardTitle>Order Items ({cart.length})</CardTitle>
+            <CardTitle>Sản phẩm ({cart.length})</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             {cart.map((item: CartItem) => (
@@ -479,7 +479,7 @@ export function CheckoutContent() {
                 <div className="flex-1">
                   <h4 className="font-medium">{item.product.name}</h4>
                   <p className="text-sm text-muted-foreground">
-                    Qty: {item.quantity}
+                    Số lượng: {item.quantity}
                   </p>
                 </div>
                 <div className="text-right">
@@ -489,7 +489,7 @@ export function CheckoutContent() {
                     />
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    <PriceFormatter amount={item.product.price || 0} /> each
+                    <PriceFormatter amount={item.product.price || 0} /> / sản phẩm
                   </p>
                 </div>
               </div>
@@ -502,16 +502,16 @@ export function CheckoutContent() {
       <div className="space-y-6">
         <Card>
           <CardHeader>
-            <CardTitle>Order Summary</CardTitle>
+            <CardTitle>Tóm tắt đơn hàng</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             <div className="flex justify-between">
-              <span>Subtotal ({cart.length} items)</span>
+              <span>Tạm tính ({cart.length} sản phẩm)</span>
               <PriceFormatter amount={grossSubtotal} />
             </div>
             {totalDiscount > 0 && (
               <div className="flex justify-between text-green-600">
-                <span>Discount</span>
+                <span>Giảm giá</span>
                 <span>
                   -<PriceFormatter amount={totalDiscount} />
                 </span>
@@ -519,27 +519,27 @@ export function CheckoutContent() {
             )}
             {businessDiscount > 0 && (
               <div className="flex justify-between text-blue-600">
-                <span>Business Account Discount (2%)</span>
+                <span>Chiết khấu Tài khoản Doanh nghiệp (2%)</span>
                 <span>
                   -<PriceFormatter amount={businessDiscount} />
                 </span>
               </div>
             )}
             <div className="flex justify-between">
-              <span>Shipping</span>
+              <span>Phí vận chuyển</span>
               {shipping === 0 ? (
-                <span className="text-green-600 font-medium">Free</span>
+                <span className="text-green-600 font-medium">Miễn phí</span>
               ) : (
                 <PriceFormatter amount={shipping} />
               )}
             </div>
             <div className="flex justify-between">
-              <span>Tax</span>
+              <span>Thuế</span>
               <PriceFormatter amount={tax} />
             </div>
             <Separator />
             <div className="flex justify-between text-lg font-bold">
-              <span>Total</span>
+              <span>Tổng cộng</span>
               <PriceFormatter amount={total} />
             </div>
           </CardContent>
@@ -555,12 +555,12 @@ export function CheckoutContent() {
             {isPlacingOrder && actionType === "pay" ? (
               <div className="flex items-center gap-2">
                 <Loader2 className="w-4 h-4 animate-spin" />
-                Processing...
+                Đang xử lý...
               </div>
             ) : (
               <div className="flex items-center gap-2">
                 <CreditCard className="w-5 h-5" />
-                Pay Now
+                Thanh toán ngay
               </div>
             )}
           </Button>
@@ -575,12 +575,12 @@ export function CheckoutContent() {
             {isPlacingOrder && actionType === "order" ? (
               <div className="flex items-center gap-2">
                 <Loader2 className="w-4 h-4 animate-spin" />
-                Placing Order...
+                Đang đặt hàng...
               </div>
             ) : (
               <div className="flex items-center gap-2">
                 <Package className="w-5 h-5" />
-                Place Order (Pay Later)
+                Đặt hàng (Thanh toán sau)
               </div>
             )}
           </Button>
@@ -589,13 +589,13 @@ export function CheckoutContent() {
         <div className="text-center text-xs text-muted-foreground">
           {selectedPaymentMethod === PAYMENT_METHODS.STRIPE ? (
             <>
-              <p>🔒 Secure checkout powered by Stripe</p>
-              <p>Your payment information is encrypted and secure</p>
+              <p>🔒 Thanh toán an toàn qua Stripe</p>
+              <p>Thông tin thanh toán của bạn được mã hóa bảo mật</p>
             </>
           ) : (
             <>
-              <p>💵 Pay when your order arrives</p>
-              <p>Cash payment to delivery agent</p>
+              <p>💵 Thanh toán khi nhận hàng (COD)</p>
+              <p>Thanh toán bằng tiền mặt cho nhân viên giao hàng</p>
             </>
           )}
         </div>
@@ -619,7 +619,7 @@ export function CheckoutContent() {
             )}
           >
             <VisuallyHidden.Root>
-              <DialogTitle>Select Payment Method</DialogTitle>
+              <DialogTitle>Chọn phương thức thanh toán</DialogTitle>
             </VisuallyHidden.Root>
             <div className="text-center space-y-4">
               <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-blue-50 border-4 border-blue-100">
@@ -627,10 +627,10 @@ export function CheckoutContent() {
               </div>
               <div className="space-y-2">
                 <h3 className="text-xl font-bold text-gray-900">
-                  Choose Payment Method
+                  Chọn cổng thanh toán
                 </h3>
                 <p className="text-gray-600 leading-relaxed">
-                  Select your preferred payment gateway to complete your order
+                  Vui lòng chọn cổng thanh toán bạn muốn để hoàn tất đơn hàng
                 </p>
               </div>
             </div>
@@ -641,7 +641,7 @@ export function CheckoutContent() {
                 disabled={isPlacingOrder}
               >
                 <CreditCard className="w-5 h-5 mr-2" />
-                Pay with Stripe
+                Thanh toán qua Stripe
               </Button>
               <Button
                 onClick={() => handlePaymentMethodSelect("clerk")}
@@ -649,7 +649,7 @@ export function CheckoutContent() {
                 disabled={isPlacingOrder}
               >
                 <Wallet className="w-5 h-5 mr-2" />
-                Pay using Clerk
+                Thanh toán qua Clerk
               </Button>
             </div>
             <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-hidden focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent data-[state=open]:text-muted-foreground">

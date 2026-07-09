@@ -63,7 +63,7 @@ const ProductPageContent = async ({ slug }: { slug: string }) => {
   // Fetch related data on the server side
   const categoryIds =
     product?.categories?.map(
-      (cat: { _ref: string; _type: string; _key: string }) => cat._ref
+      (cat: any) => cat._id || cat._ref
     ) || [];
   const [relatedProducts, brand] = await Promise.all([
     getRelatedProducts(categoryIds, product?.slug?.current || "", 4),
@@ -71,20 +71,23 @@ const ProductPageContent = async ({ slug }: { slug: string }) => {
   ]);
 
   // Convert null values to undefined for TypeScript compatibility
-  const productWithReviews = {
+  // Use product.brand from query (already dereferenced) as primary, fallback to legacy getBrand()
+  const productWithBrand = {
     ...product,
     averageRating: product.averageRating ?? undefined,
     totalReviews: product.totalReviews ?? undefined,
+    // If brand is already dereferenced from GROQ query, keep it; else fall back
+    brand: (product.brand && typeof product.brand === 'object' && 'title' in product.brand)
+      ? product.brand
+      : brand,
   };
 
-  const productWithBrand = { ...productWithReviews, brand };
-
   // Generate structured data
-  const productSchema = generateProductSchema(productWithBrand);
+  const productSchema = generateProductSchema(productWithBrand as any);
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: "Trang chủ", url: "/" },
     { name: "Cửa hàng", url: "/shop" },
-    { name: productWithReviews.name || "Sản phẩm", url: `/product/${slug}` },
+    { name: productWithBrand.name || "Sản phẩm", url: `/product/${slug}` },
   ]);
 
   return (
@@ -104,7 +107,7 @@ const ProductPageContent = async ({ slug }: { slug: string }) => {
       />
 
       <ProductContent
-        product={productWithReviews}
+        product={productWithBrand as any}
         relatedProducts={(relatedProducts || []) as unknown as Product[]}
         brand={brand}
       />

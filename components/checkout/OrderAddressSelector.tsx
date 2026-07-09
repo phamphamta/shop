@@ -40,10 +40,10 @@ export function OrderAddressSelector({
     return (
       <div className="text-center py-4">
         <p className="text-muted-foreground mb-2">
-          No previous addresses found
+          Không tìm thấy địa chỉ nào trước đó
         </p>
         <p className="text-sm text-muted-foreground">
-          You can enter a new address during payment
+          Bạn có thể điền địa chỉ mới khi thực hiện thanh toán
         </p>
       </div>
     );
@@ -71,7 +71,7 @@ export function OrderAddressSelector({
                   {address.name}
                   {address.default && (
                     <span className="text-xs bg-green-100 text-green-800 px-2 py-1 rounded">
-                      Most Recent
+                      Gần đây nhất
                     </span>
                   )}
                 </div>

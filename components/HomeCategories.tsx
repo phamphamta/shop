@@ -81,11 +81,11 @@ const HomeCategories = ({ categories }: Props) => {
                   <div className="flex items-center gap-1">
                     <div className="w-2 h-2 bg-shop_light_blue rounded-full"></div>
                     <span className="text-sm font-semibold text-shop_dark_blue">
-                      Explore
+                      Khám phá
                     </span>
                   </div>
                   <span className="text-sm text-light-color">
-                    this category
+                    danh mục này
                   </span>
                 </div>
 
@@ -99,7 +99,7 @@ const HomeCategories = ({ categories }: Props) => {
 
                 {/* Shop Now Button */}
                 <div className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-gradient-to-r from-shop_light_pink to-shop_light_bg text-shop_dark_blue font-medium rounded-full group-hover:from-shop_light_blue group-hover:to-shop_dark_blue group-hover:text-white text-sm hoverEffect">
-                  Shop Now
+                  Mua ngay
                   <svg
                     className="w-3 h-3 hoverEffect group-hover:translate-x-1"
                     fill="none"
@@ -125,15 +125,15 @@ const HomeCategories = ({ categories }: Props) => {
             <div className="text-2xl font-bold text-shop_dark_blue">
               {categories?.length}+
             </div>
-            <div className="text-sm text-light-color">Categories</div>
+            <div className="text-sm text-light-color">Danh mục</div>
           </div>
           <div className="text-center">
             <div className="text-2xl font-bold text-shop_dark_blue">1000+</div>
-            <div className="text-sm text-light-color">Products</div>
+            <div className="text-sm text-light-color">Sản phẩm</div>
           </div>
           <div className="text-center">
             <div className="text-2xl font-bold text-shop_dark_blue">24/7</div>
-            <div className="text-sm text-light-color">Support</div>
+            <div className="text-sm text-light-color">Hỗ trợ</div>
           </div>
         </div>
 

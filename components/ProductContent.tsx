@@ -73,6 +73,8 @@ const ProductContent = ({
             name: product?.name || "",
             slug: product?.slug?.current || "",
           }}
+          productCategories={product?.categories}
+          productBrand={product?.brand}
         />
 
         <div className="flex flex-col md:flex-row gap-10 pb-6">
@@ -88,11 +90,11 @@ const ProductContent = ({
             <div className="space-y-3">
               {product?.brand && (
                 <Badge className="bg-shop_light_green/10 text-shop_dark_green hover:bg-shop_light_green/20 w-fit">
-                  {brand && brand.length > 0 && (
-                    <span className="font-semibold tracking-wide">
-                      {brand[0]?.brandName}
-                    </span>
-                  )}
+                  <span className="font-semibold tracking-wide">
+                    {typeof product.brand === "object" && product.brand && "title" in product.brand
+                      ? (product.brand as any).title
+                      : (brand && brand.length > 0 ? brand[0]?.brandName : "")}
+                  </span>
                 </Badge>
               )}
 

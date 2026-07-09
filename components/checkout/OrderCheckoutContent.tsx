@@ -83,11 +83,11 @@ export function OrderCheckoutContent({ order }: OrderCheckoutContentProps) {
         // Redirect to Stripe checkout
         window.location.href = data.url;
       } else {
-        toast.error(data.error || "Failed to create payment session");
+        toast.error(data.error || "Không thể tạo phiên thanh toán");
       }
     } catch (error) {
       console.error("Payment error:", error);
-      toast.error("Failed to initiate payment");
+      toast.error("Không thể khởi tạo thanh toán");
     } finally {
       setIsProcessing(false);
     }
@@ -99,14 +99,14 @@ export function OrderCheckoutContent({ order }: OrderCheckoutContentProps) {
     try {
       // Here you could implement COD logic if needed
       // For now, just show a message
-      toast.success("Order confirmed with Cash on Delivery payment method");
+      toast.success("Đơn hàng đã được xác nhận với phương thức Thanh toán khi nhận hàng (COD)");
 
       setTimeout(() => {
         window.location.href = `/user/orders/${order._id}`;
       }, 1500);
     } catch (error) {
       console.error("COD payment error:", error);
-      toast.error("Failed to process COD payment");
+      toast.error("Không thể xử lý thanh toán COD");
     } finally {
       setIsProcessing(false);
     }
@@ -122,7 +122,7 @@ export function OrderCheckoutContent({ order }: OrderCheckoutContentProps) {
             <div className="flex items-center justify-between">
               <CardTitle className="flex items-center gap-2">
                 <Package className="w-5 h-5" />
-                Order #{order.orderNumber?.slice(-8)}
+                Đơn hàng #{order.orderNumber?.slice(-8)}
               </CardTitle>
               <Badge variant="outline" className="capitalize">
                 {order.status}
@@ -132,12 +132,12 @@ export function OrderCheckoutContent({ order }: OrderCheckoutContentProps) {
           <CardContent>
             <div className="grid md:grid-cols-2 gap-4 text-sm">
               <div>
-                <p className="text-muted-foreground">Customer</p>
+                <p className="text-muted-foreground">Khách hàng</p>
                 <p className="font-medium">{order.customerName}</p>
                 <p className="text-muted-foreground">{order.email}</p>
               </div>
               <div>
-                <p className="text-muted-foreground">Order Date</p>
+                <p className="text-muted-foreground">Ngày đặt hàng</p>
                 <p className="font-medium">
                   {new Date(order.orderDate).toLocaleDateString()}
                 </p>
@@ -151,7 +151,7 @@ export function OrderCheckoutContent({ order }: OrderCheckoutContentProps) {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <MapPin className="w-5 h-5" />
-              Shipping Address
+              Địa chỉ nhận hàng
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -170,7 +170,7 @@ export function OrderCheckoutContent({ order }: OrderCheckoutContentProps) {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <CreditCard className="w-5 h-5" />
-              Payment Method
+              Phương thức thanh toán
             </CardTitle>
           </CardHeader>
           <CardContent>
@@ -191,10 +191,10 @@ export function OrderCheckoutContent({ order }: OrderCheckoutContentProps) {
                   <Label htmlFor="stripe" className="cursor-pointer">
                     <div className="flex items-center gap-2 font-medium">
                       <CreditCard className="w-4 h-4" />
-                      Credit/Debit Card
+                      Thẻ tín dụng / Thẻ ghi nợ
                     </div>
                     <p className="text-sm text-muted-foreground mt-1">
-                      Pay securely with your credit or debit card via Stripe
+                      Thanh toán an toàn bằng thẻ tín dụng hoặc thẻ ghi nợ của bạn qua Stripe
                     </p>
                   </Label>
                 </div>
@@ -210,10 +210,10 @@ export function OrderCheckoutContent({ order }: OrderCheckoutContentProps) {
                   <Label htmlFor="cod" className="cursor-pointer">
                     <div className="flex items-center gap-2 font-medium">
                       <Truck className="w-4 h-4" />
-                      Cash on Delivery
+                      Thanh toán khi giao hàng (COD)
                     </div>
                     <p className="text-sm text-muted-foreground mt-1">
-                      Pay when your order is delivered to your doorstep
+                      Thanh toán bằng tiền mặt khi đơn hàng được giao đến tận tay bạn
                     </p>
                   </Label>
                 </div>
@@ -225,7 +225,7 @@ export function OrderCheckoutContent({ order }: OrderCheckoutContentProps) {
         {/* Order Items */}
         <Card>
           <CardHeader>
-            <CardTitle>Order Items ({order.products.length})</CardTitle>
+            <CardTitle>Sản phẩm ({order.products.length})</CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             {order.products.map((item, index) => (
@@ -246,7 +246,7 @@ export function OrderCheckoutContent({ order }: OrderCheckoutContentProps) {
                 <div className="flex-1">
                   <h4 className="font-medium">{item.product.name}</h4>
                   <p className="text-sm text-muted-foreground">
-                    Qty: {item.quantity}
+                    Số lượng: {item.quantity}
                   </p>
                 </div>
                 <div className="text-right">
@@ -256,7 +256,7 @@ export function OrderCheckoutContent({ order }: OrderCheckoutContentProps) {
                     />
                   </p>
                   <p className="text-sm text-muted-foreground">
-                    <PriceFormatter amount={item.product.price} /> each
+                    <PriceFormatter amount={item.product.price} /> / sản phẩm
                   </p>
                 </div>
               </div>
@@ -269,28 +269,28 @@ export function OrderCheckoutContent({ order }: OrderCheckoutContentProps) {
       <div className="space-y-6">
         <Card>
           <CardHeader>
-            <CardTitle>Order Summary</CardTitle>
+            <CardTitle>Tóm tắt đơn hàng</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3">
             <div className="flex justify-between">
-              <span>Subtotal ({order.products.length} items)</span>
+              <span>Tạm tính ({order.products.length} sản phẩm)</span>
               <PriceFormatter amount={order.subtotal} />
             </div>
             <div className="flex justify-between">
-              <span>Shipping</span>
+              <span>Phí vận chuyển</span>
               {order.shipping === 0 ? (
-                <span className="text-green-600 font-medium">Free</span>
+                <span className="text-green-600 font-medium">Miễn phí</span>
               ) : (
                 <PriceFormatter amount={order.shipping} />
               )}
             </div>
             <div className="flex justify-between">
-              <span>Tax</span>
+              <span>Thuế</span>
               <PriceFormatter amount={order.tax} />
             </div>
             <Separator />
             <div className="flex justify-between text-lg font-bold">
-              <span>Total</span>
+              <span>Tổng cộng</span>
               <PriceFormatter amount={order.totalPrice} />
             </div>
           </CardContent>
@@ -309,19 +309,19 @@ export function OrderCheckoutContent({ order }: OrderCheckoutContentProps) {
           {isProcessing ? (
             <div className="flex items-center gap-2">
               <Loader2 className="w-4 h-4 animate-spin" />
-              Processing...
+              Đang xử lý...
             </div>
           ) : (
             <div className="flex items-center gap-2">
               {selectedPaymentMethod === PAYMENT_METHODS.STRIPE ? (
                 <>
                   <CreditCard className="w-5 h-5" />
-                  Pay <PriceFormatter amount={order.totalPrice} />
+                  Thanh toán <PriceFormatter amount={order.totalPrice} />
                 </>
               ) : (
                 <>
                   <Truck className="w-5 h-5" />
-                  Confirm COD Order
+                  Xác nhận đơn hàng COD
                 </>
               )}
             </div>
@@ -331,20 +331,20 @@ export function OrderCheckoutContent({ order }: OrderCheckoutContentProps) {
         <Button asChild variant="outline" className="w-full">
           <Link href="/user/orders" className="flex items-center gap-2">
             <ArrowLeft className="w-4 h-4" />
-            Back to Orders
+            Quay lại danh sách đơn hàng
           </Link>
         </Button>
 
         <div className="text-center text-xs text-muted-foreground">
           {selectedPaymentMethod === PAYMENT_METHODS.STRIPE ? (
             <>
-              <p>🔒 Secure payment powered by Stripe</p>
-              <p>Your payment information is encrypted and secure</p>
+              <p>🔒 Thanh toán an toàn qua Stripe</p>
+              <p>Thông tin thanh toán của bạn được mã hóa bảo mật</p>
             </>
           ) : (
             <>
-              <p>💵 Pay when your order arrives</p>
-              <p>Cash payment to delivery agent</p>
+              <p>💵 Thanh toán khi nhận hàng (COD)</p>
+              <p>Thanh toán bằng tiền mặt cho nhân viên giao hàng</p>
             </>
           )}
         </div>

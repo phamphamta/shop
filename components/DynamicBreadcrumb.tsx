@@ -24,6 +24,8 @@ interface DynamicBreadcrumbProps {
     name: string;
     slug: string;
   };
+  productCategories?: any[];
+  productBrand?: any;
   categoryData?: {
     name: string;
     slug: string;
@@ -40,6 +42,8 @@ const DynamicBreadcrumb = ({
   customItems,
   className = "",
   productData,
+  productCategories,
+  productBrand,
   categoryData,
   brandData,
   parentPath,
@@ -88,10 +92,22 @@ const DynamicBreadcrumb = ({
   const formatSegmentLabel = (segment: string): string => {
     // Handle special cases
     const specialCases: Record<string, string> = {
-      "sign-in": "Sign In",
-      "sign-up": "Sign Up",
-      "my-account": "My Account",
-      "order-history": "Order History",
+      "sign-in": "Đăng nhập",
+      "sign-up": "Đăng ký",
+      "my-account": "Tài khoản của tôi",
+      "order-history": "Lịch sử đơn hàng",
+      "product": "Sản phẩm",
+      "brands": "Thương hiệu",
+      "category": "Danh mục",
+      "shop": "Cửa hàng",
+      "blog": "Blog",
+      "cart": "Giỏ hàng",
+      "checkout": "Thanh toán",
+      "dashboard": "Bảng điều khiển",
+      "orders": "Đơn hàng",
+      "deal": "Ưu đãi",
+      "about": "Giới thiệu",
+      "contact": "Liên hệ",
     };
 
     if (specialCases[segment]) {
@@ -116,9 +132,9 @@ const DynamicBreadcrumb = ({
       isLast: boolean;
     }> = [];
 
-    // Always start with Home
+    // Always start with Trang chủ
     breadcrumbs.push({
-      label: "Home",
+      label: "Trang chủ",
       href: "/",
       isLast: pathSegments.length === 0,
     });
@@ -159,6 +175,31 @@ const DynamicBreadcrumb = ({
 
       // Handle dynamic routes with provided data
       if (parentSegment === "product" && productData && isLast) {
+        if (productCategories && productCategories.length > 0) {
+          const firstCat = productCategories[0];
+          const catTitle = firstCat?.title;
+          const catSlug = firstCat?.slug?.current;
+          if (catTitle && catSlug) {
+            breadcrumbs.push({
+              label: catTitle,
+              href: `/category/${catSlug}`,
+              isLast: false,
+            });
+          }
+        }
+
+        if (productBrand) {
+          const brandTitle = productBrand?.title;
+          const brandSlug = productBrand?.slug?.current;
+          if (brandTitle && brandSlug) {
+            breadcrumbs.push({
+              label: brandTitle,
+              href: `/brands/${brandSlug?.trim()}`,
+              isLast: false,
+            });
+          }
+        }
+
         breadcrumbs.push({
           label: productData.name,
           href: undefined,

@@ -52,7 +52,7 @@ const ProductCatalog = ({ initialProducts, categories, brands }: Props) => {
   const [searchQuery, setSearchQuery] = useState("");
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedBrands, setSelectedBrands] = useState<string[]>([]);
-  const [priceRange, setPriceRange] = useState<[number, number]>([0, 1000]);
+  const [priceRange, setPriceRange] = useState<[number, number] | null>(null);
   const [sortBy, setSortBy] = useState<SortOption>("name-asc");
   const [viewMode, setViewMode] = useState<"grid" | "large">("grid");
   const [showFilters, setShowFilters] = useState(false);
@@ -96,12 +96,14 @@ const ProductCatalog = ({ initialProducts, categories, brands }: Props) => {
       );
     }
 
-    // Price filter
-    const [minPrice, maxPrice] = priceRange;
-    filtered = filtered.filter((product) => {
-      const price = product.price || 0;
-      return price >= minPrice && price <= maxPrice;
-    });
+    // Price filter - only apply if user has explicitly set a range
+    if (priceRange !== null) {
+      const [minPrice, maxPriceVal] = priceRange;
+      filtered = filtered.filter((product) => {
+        const price = product.price || 0;
+        return price >= minPrice && price <= maxPriceVal;
+      });
+    }
 
     // Sort products
     filtered.sort((a, b) => {
@@ -138,7 +140,7 @@ const ProductCatalog = ({ initialProducts, categories, brands }: Props) => {
     setSearchQuery("");
     setSelectedCategories([]);
     setSelectedBrands([]);
-    setPriceRange([0, maxPrice]);
+    setPriceRange(null);
     setSortBy("name-asc");
   };
 
@@ -147,7 +149,7 @@ const ProductCatalog = ({ initialProducts, categories, brands }: Props) => {
     (searchQuery ? 1 : 0) +
     selectedCategories.length +
     selectedBrands.length +
-    (priceRange[0] > 0 || priceRange[1] < maxPrice ? 1 : 0);
+    (priceRange !== null ? 1 : 0);
 
   // Handle category toggle
   const toggleCategory = (categoryId: string) => {
@@ -280,12 +282,12 @@ const ProductCatalog = ({ initialProducts, categories, brands }: Props) => {
                 </Badge>
               ) : null;
             })}
-            {(priceRange[0] > 0 || priceRange[1] < maxPrice) && (
+            {priceRange !== null && (
               <Badge variant="secondary" className="gap-1">
                 ${priceRange[0]} - ${priceRange[1]}
                 <X
                   className="w-3 h-3 cursor-pointer"
-                  onClick={() => setPriceRange([0, maxPrice])}
+                  onClick={() => setPriceRange(null)}
                 />
               </Badge>
             )}
@@ -416,7 +418,7 @@ const ProductCatalog = ({ initialProducts, categories, brands }: Props) => {
                   <CollapsibleContent className="mt-3 space-y-4">
                     <div className="px-2">
                       <Slider
-                        value={priceRange}
+                        value={priceRange ?? [0, maxPrice]}
                         onValueChange={(value) =>
                           setPriceRange(value as [number, number])
                         }
@@ -427,8 +429,8 @@ const ProductCatalog = ({ initialProducts, categories, brands }: Props) => {
                       />
                     </div>
                     <div className="flex items-center justify-between text-sm text-gray-600">
-                      <span>${priceRange[0]}</span>
-                      <span>${priceRange[1]}</span>
+                      <span>${priceRange ? priceRange[0] : 0}</span>
+                      <span>${priceRange ? priceRange[1] : maxPrice}</span>
                     </div>
                   </CollapsibleContent>
                 </Collapsible>

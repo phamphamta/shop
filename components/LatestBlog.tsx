@@ -102,7 +102,7 @@ const LatestBlog = async () => {
                   href={`/blog/${blog?.slug?.current}`}
                   className="inline-flex items-center gap-2 text-sm font-medium text-shop_dark_green hover:text-shop_light_green hoverEffect"
                 >
-                  Read More
+                  Đọc thêm
                   <svg
                     className="w-4 h-4 hoverEffect group-hover:translate-x-1"
                     fill="none"
@@ -129,7 +129,7 @@ const LatestBlog = async () => {
           <div className="inline-flex items-center gap-4 px-8 py-4 bg-gradient-to-r from-shop_light_pink to-shop_light_bg rounded-2xl border border-shop_light_green/20">
             <div className="w-2 h-2 bg-shop_light_green rounded-full animate-pulse"></div>
             <span className="text-dark-text font-medium">
-              Discover more insights and stories in our blog section
+              Khám phá thêm nhiều kiến thức và câu chuyện thú vị trong chuyên mục blog của chúng tôi
             </span>
             <div className="w-2 h-2 bg-shop_light_green rounded-full animate-pulse"></div>
           </div>

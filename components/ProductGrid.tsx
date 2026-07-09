@@ -209,33 +209,33 @@ const ProductGrid = () => {
             {/* View Mode Selector */}
             <div className="flex items-center gap-2">
               <span className="text-sm font-medium text-dark-color hidden sm:block">
-                View:
+                Hiển thị:
               </span>
               <div className="flex items-center gap-1">
                 <ViewModeButton
                   mode="grid-2"
                   icon={<Grid3X3 size={16} />}
-                  label="2 Columns"
+                  label="2 Cột"
                 />
                 <ViewModeButton
                   mode="grid-3"
                   icon={<LayoutGrid size={16} />}
-                  label="3 Columns"
+                  label="3 Cột"
                 />
                 <ViewModeButton
                   mode="grid-4"
                   icon={<LayoutGrid size={16} />}
-                  label="4 Columns"
+                  label="4 Cột"
                 />
                 <ViewModeButton
                   mode="grid-5"
                   icon={<LayoutGrid size={16} />}
-                  label="5 Columns"
+                  label="5 Cột"
                 />
                 <ViewModeButton
                   mode="list"
                   icon={<List size={16} />}
-                  label="List View"
+                  label="Danh sách"
                 />
               </div>
             </div>
@@ -251,7 +251,7 @@ const ProductGrid = () => {
                 }`}
             >
               <Filter size={16} />
-              <span className="hidden sm:inline">Filters</span>
+              <span className="hidden sm:inline">Bộ lọc</span>
             </Button>
           </div>
 
@@ -265,16 +265,16 @@ const ProductGrid = () => {
                 onValueChange={(value) => setSortBy(value as SortOption)}
               >
                 <SelectTrigger className="w-48 border-gray-200 focus:border-shop_light_green">
-                  <SelectValue placeholder="Sort by..." />
+                  <SelectValue placeholder="Sắp xếp theo..." />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="name-asc">Name (A-Z)</SelectItem>
-                  <SelectItem value="name-desc">Name (Z-A)</SelectItem>
-                  <SelectItem value="price-asc">Price (Low to High)</SelectItem>
+                  <SelectItem value="name-asc">Tên (A-Z)</SelectItem>
+                  <SelectItem value="name-desc">Tên (Z-A)</SelectItem>
+                  <SelectItem value="price-asc">Giá (Thấp đến Cao)</SelectItem>
                   <SelectItem value="price-desc">
-                    Price (High to Low)
+                    Giá (Cao đến Thấp)
                   </SelectItem>
-                  <SelectItem value="newest">Newest First</SelectItem>
+                  <SelectItem value="newest">Mới nhất</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -286,7 +286,7 @@ const ProductGrid = () => {
                 variant="secondary"
                 className="bg-shop_light_pink text-shop_dark_green"
               >
-                {filteredProducts.length} products
+                {filteredProducts.length} sản phẩm
               </Badge>
             </div>
           </div>
@@ -307,11 +307,10 @@ const ProductGrid = () => {
                 <CardContent className="p-6">
                   <div className="mb-6">
                     <h3 className="text-lg font-bold text-dark-color flex items-center gap-2 mb-2">
-                      🎯 Advanced Filters
+                      🎯 Bộ lọc nâng cao
                     </h3>
                     <p className="text-sm text-light-color">
-                      Fine-tune your search to find exactly what you&apos;re
-                      looking for
+                      Tinh chỉnh tìm kiếm để tìm chính xác sản phẩm bạn cần
                     </p>
                   </div>
 
@@ -319,7 +318,7 @@ const ProductGrid = () => {
                     {/* Price Range Filter */}
                     <div className="space-y-4 p-4 bg-white rounded-xl border border-shop_light_green/10 shadow-sm">
                       <Label className="text-sm font-bold text-dark-color flex items-center gap-2">
-                        💰 Price Range
+                        💰 Khoảng giá
                       </Label>
                       <div className="space-y-4">
                         <div className="px-2">
@@ -335,7 +334,7 @@ const ProductGrid = () => {
                         <div className="flex items-center gap-2">
                           <div className="flex-1">
                             <Label className="text-xs text-light-color">
-                              Min Price
+                              Thấp nhất
                             </Label>
                             <Input
                               type="number"
@@ -355,7 +354,7 @@ const ProductGrid = () => {
                           </div>
                           <div className="flex-1">
                             <Label className="text-xs text-light-color">
-                              Max Price
+                              Cao nhất
                             </Label>
                             <Input
                               type="number"
@@ -382,32 +381,32 @@ const ProductGrid = () => {
                     {/* Stock Status Filter */}
                     <div className="space-y-4 p-4 bg-white rounded-xl border border-shop_light_green/10 shadow-sm">
                       <Label className="text-sm font-bold text-dark-color flex items-center gap-2">
-                        📦 Stock Status
+                        📦 Tình trạng kho
                       </Label>
                       <Select
                         value={stockStatus}
                         onValueChange={setStockStatus}
                       >
                         <SelectTrigger className="border-gray-200 focus:border-shop_light_green h-10">
-                          <SelectValue placeholder="Select status..." />
+                          <SelectValue placeholder="Chọn tình trạng..." />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="all">
                             <span className="flex items-center gap-2">
                               <div className="w-2 h-2 bg-gray-400 rounded-full"></div>
-                              All Products
+                              Tất cả sản phẩm
                             </span>
                           </SelectItem>
                           <SelectItem value="in-stock">
                             <span className="flex items-center gap-2">
                               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                              In Stock
+                              Còn hàng
                             </span>
                           </SelectItem>
                           <SelectItem value="out-of-stock">
                             <span className="flex items-center gap-2">
                               <div className="w-2 h-2 bg-red-500 rounded-full"></div>
-                              Out of Stock
+                              Hết hàng
                             </span>
                           </SelectItem>
                         </SelectContent>
@@ -419,8 +418,8 @@ const ProductGrid = () => {
                             className="w-fit border-shop_light_green/30"
                           >
                             {stockStatus === "in-stock"
-                              ? "✅ In Stock Only"
-                              : "❌ Out of Stock Only"}
+                              ? "✅ Chỉ hiện còn hàng"
+                              : "❌ Chỉ hiện hết hàng"}
                           </Badge>
                         </div>
                       )}
@@ -429,31 +428,31 @@ const ProductGrid = () => {
                     {/* Quality Filter */}
                     <div className="space-y-4 p-4 bg-white rounded-xl border border-shop_light_green/10 shadow-sm">
                       <Label className="text-sm font-bold text-dark-color flex items-center gap-2">
-                        🏆 Product Quality
+                        🏆 Loại sản phẩm
                       </Label>
                       <Select value={rating} onValueChange={setRating}>
                         <SelectTrigger className="border-gray-200 focus:border-shop_light_green h-10">
-                          <SelectValue placeholder="Select quality..." />
+                          <SelectValue placeholder="Chọn loại sản phẩm..." />
                         </SelectTrigger>
                         <SelectContent>
                           <SelectItem value="all">
                             <span className="flex items-center gap-2">
-                              🛍️ All Products
+                              🛍️ Tất cả sản phẩm
                             </span>
                           </SelectItem>
                           <SelectItem value="5">
                             <span className="flex items-center gap-2">
-                              🔥 Hot Products (Premium)
+                              🔥 Sản phẩm Hot (Premium)
                             </span>
                           </SelectItem>
                           <SelectItem value="4">
                             <span className="flex items-center gap-2">
-                              ✨ New & Hot (High Quality)
+                              ✨ Mới & Hot (Chất lượng cao)
                             </span>
                           </SelectItem>
                           <SelectItem value="3">
                             <span className="flex items-center gap-2">
-                              🛍️ All Available (Standard+)
+                              🛍️ Tất cả sẵn có (Tiêu chuẩn+)
                             </span>
                           </SelectItem>
                         </SelectContent>
@@ -465,10 +464,10 @@ const ProductGrid = () => {
                             className="w-fit border-shop_orange/30 text-shop_orange"
                           >
                             {rating === "5"
-                              ? "🔥 Premium Only"
+                              ? "🔥 Chỉ hiện Premium"
                               : rating === "4"
-                                ? "✨ High Quality+"
-                                : "🛍️ Standard+"}
+                                ? "✨ Chỉ hiện Chất lượng cao+"
+                                : "🛍️ Chỉ hiện Tiêu chuẩn+"}
                           </Badge>
                         </div>
                       )}
@@ -478,7 +477,7 @@ const ProductGrid = () => {
                     <div className="flex flex-col gap-3 justify-end p-4 bg-gradient-to-br from-shop_light_pink/20 to-shop_light_bg/30 rounded-xl border border-shop_light_green/10">
                       <div className="text-center mb-2">
                         <Label className="text-sm font-bold text-dark-color">
-                          Quick Actions
+                          Thao tác nhanh
                         </Label>
                       </div>
                       <Button
@@ -487,7 +486,7 @@ const ProductGrid = () => {
                           applyFilters();
                         }}
                       >
-                        ✨ Apply Filters ({filteredProducts.length})
+                        ✨ Áp dụng ({filteredProducts.length})
                       </Button>
                       <Button
                         variant="outline"
@@ -498,7 +497,7 @@ const ProductGrid = () => {
                           setRating("all");
                         }}
                       >
-                        🗑️ Clear Filters
+                        🗑️ Xóa bộ lọc
                       </Button>
                     </div>
                   </div>
@@ -511,14 +510,14 @@ const ProductGrid = () => {
                       <div className="mt-6 pt-4 border-t border-gray-100">
                         <div className="flex items-center gap-2 flex-wrap">
                           <span className="text-sm font-medium text-dark-color">
-                            Active Filters:
+                            Bộ lọc đang bật:
                           </span>
                           {(priceRange[0] > 0 || priceRange[1] < 1000) && (
                             <Badge
                               variant="secondary"
                               className="bg-shop_light_pink text-shop_dark_green"
                             >
-                              Price: ${priceRange[0]} - ${priceRange[1]}
+                              Khoảng giá: ${priceRange[0]} - ${priceRange[1]}
                             </Badge>
                           )}
                           {stockStatus && stockStatus !== "all" && (
@@ -526,10 +525,10 @@ const ProductGrid = () => {
                               variant="secondary"
                               className="bg-shop_light_pink text-shop_dark_green"
                             >
-                              Stock:{" "}
+                              Kho:{" "}
                               {stockStatus === "in-stock"
-                                ? "In Stock"
-                                : "Out of Stock"}
+                                ? "Còn hàng"
+                                : "Hết hàng"}
                             </Badge>
                           )}
                           {rating && rating !== "all" && (
@@ -537,12 +536,12 @@ const ProductGrid = () => {
                               variant="secondary"
                               className="bg-shop_light_pink text-shop_dark_green"
                             >
-                              Quality:{" "}
+                              Loại:{" "}
                               {rating === "5"
                                 ? "🔥 Premium"
                                 : rating === "4"
-                                  ? "✨ High Quality"
-                                  : "🛍️ Standard+"}
+                                  ? "✨ Mới & Hot"
+                                  : "🛍️ Tiêu chuẩn+"}
                             </Badge>
                           )}
                         </div>
@@ -593,7 +592,7 @@ const ProductGrid = () => {
             size="lg"
             className="px-8 py-3 bg-gradient-to-r from-shop_light_green to-shop_dark_green text-white font-semibold rounded-full hover:shadow-lg transform hover:-translate-y-1 hoverEffect"
           >
-            Load More Products
+            Xem thêm sản phẩm
           </Button>
         </div>
       )}

@@ -1,9 +1,9 @@
 export const headerData = [
-  { title: "Home", href: "/" },
-  { title: "Shop", href: "/shop" },
-  { title: "Hot Deal", href: "/deal" },
+  { title: "Trang chủ", href: "/" },
+  { title: "Cửa hàng", href: "/shop" },
+  { title: "Ưu đãi Hot", href: "/deal" },
   { title: "Blog", href: "/blog" },
-  { title: "Contact", href: "/contact" },
+  { title: "Liên hệ", href: "/contact" },
 ];
 
 export const productType = [

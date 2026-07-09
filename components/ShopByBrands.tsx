@@ -39,7 +39,7 @@ const ShopByBrands = async () => {
         <div className="inline-flex items-center gap-3 mb-4">
           <div className="h-1 w-12 bg-gradient-to-r from-shop_orange to-shop_light_orange rounded-full"></div>
           <Title className="text-3xl lg:text-4xl font-bold text-dark-color">
-            Shop By Brands
+            Mua theo thương hiệu
           </Title>
           <div className="h-1 w-12 bg-gradient-to-l from-shop_orange to-shop_light_orange rounded-full"></div>
         </div>

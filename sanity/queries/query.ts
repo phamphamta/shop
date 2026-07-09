@@ -101,6 +101,16 @@ const ADMIN_CATEGORIES_QUERY = defineQuery(
 const PRODUCT_BY_SLUG_QUERY = defineQuery(
   `*[_type == "product" && slug.current == $slug] | order(name asc) [0]{
     ...,
+    brand->{
+      _id,
+      title,
+      slug
+    },
+    categories[]->{
+      _id,
+      title,
+      slug
+    },
     "averageRating": math::avg(*[_type == "review" && product._ref == ^._id && status == "approved"].rating),
     "totalReviews": count(*[_type == "review" && product._ref == ^._id && status == "approved"])
   }`

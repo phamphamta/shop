@@ -39,36 +39,36 @@ export function OrderPlacementSkeleton({
             <h3 className="text-lg sm:text-xl font-bold text-gray-800">
               {isCheckoutRedirect &&
                 step === "redirecting" &&
-                "Redirecting to Checkout"}
+                "Đang chuyển hướng đến Thanh toán"}
               {!isCheckoutRedirect &&
                 step === "validating" &&
-                "Validating Your Order"}
+                "Đang xác minh đơn hàng"}
               {!isCheckoutRedirect &&
                 step === "creating" &&
-                "Processing Your Order"}
+                "Đang xử lý đơn hàng"}
               {!isCheckoutRedirect &&
                 step === "emailing" &&
-                "Sending Confirmation"}
+                "Đang gửi email xác nhận"}
               {!isCheckoutRedirect &&
                 step === "redirecting" &&
-                "Order Confirmed!"}
+                "Đơn hàng đã được xác nhận!"}
             </h3>
             <p className="text-xs sm:text-sm text-gray-600 max-w-xs sm:max-w-sm mx-auto px-2">
               {isCheckoutRedirect &&
                 step === "redirecting" &&
-                "Taking you to the secure checkout page where you can complete your payment"}
+                "Đang đưa bạn đến trang thanh toán bảo mật để hoàn tất thanh toán"}
               {!isCheckoutRedirect &&
                 step === "validating" &&
-                "We're verifying your order details and checking product availability"}
+                "Chúng tôi đang xác minh thông tin đơn hàng và kiểm tra tính sẵn có của sản phẩm"}
               {!isCheckoutRedirect &&
                 step === "creating" &&
-                "Your order is being securely processed and saved to our system"}
+                "Đơn hàng của bạn đang được xử lý bảo mật và lưu vào hệ thống của chúng tôi"}
               {!isCheckoutRedirect &&
                 step === "emailing" &&
-                "We're sending your order confirmation and receipt via email"}
+                "Chúng tôi đang gửi xác nhận đơn hàng và hóa đơn qua email của bạn"}
               {!isCheckoutRedirect &&
                 step === "redirecting" &&
-                "Taking you to the order confirmation page"}
+                "Đang đưa bạn đến trang xác nhận đơn hàng"}
             </p>
           </div>
         </div>
@@ -129,7 +129,7 @@ export function OrderPlacementSkeleton({
               {getStepStatus("validating") === "active" && (
                 <div className="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
               )}
-              <span className="ml-2">Verifying Order Details</span>
+              <span className="ml-2">Đang xác minh thông tin đơn hàng</span>
             </div>
 
             <div className={getStepDisplay("creating")}>
@@ -139,7 +139,7 @@ export function OrderPlacementSkeleton({
               {getStepStatus("creating") === "active" && (
                 <div className="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
               )}
-              <span className="ml-2">Processing Payment & Order</span>
+              <span className="ml-2">Đang xử lý thanh toán & đơn hàng</span>
             </div>
 
             <div className={getStepDisplay("emailing")}>
@@ -149,7 +149,7 @@ export function OrderPlacementSkeleton({
               {getStepStatus("emailing") === "active" && (
                 <div className="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
               )}
-              <span className="ml-2">Sending Email Confirmation</span>
+              <span className="ml-2">Đang gửi email xác nhận</span>
             </div>
 
             <div className={getStepDisplay("redirecting")}>
@@ -159,7 +159,7 @@ export function OrderPlacementSkeleton({
               {getStepStatus("redirecting") === "active" && (
                 <div className="w-4 h-4 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
               )}
-              <span className="ml-2">Redirecting to Confirmation</span>
+              <span className="ml-2">Đang chuyển hướng đến trang xác nhận</span>
             </div>
           </div>
         </div>
@@ -167,7 +167,7 @@ export function OrderPlacementSkeleton({
         {/* Order Summary Skeleton */}
         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 sm:p-6 space-y-3 sm:space-y-4 border border-blue-100 mx-2 sm:mx-0">
           <div className="text-base font-semibold text-gray-800 mb-4 text-center">
-            📦 Order Summary
+            📦 Tóm tắt đơn hàng
           </div>
           <div className="space-y-3">
             <div className="flex justify-between items-center">
@@ -194,10 +194,10 @@ export function OrderPlacementSkeleton({
         {/* Footer Message */}
         <div className="text-xs sm:text-sm text-gray-600 space-y-2 bg-yellow-50 border border-yellow-200 rounded-lg p-3 sm:p-4 mx-2 sm:mx-0">
           <p className="flex items-center justify-center gap-2 font-medium">
-            🔒 <span>Secure Processing</span>
+            🔒 <span>Xử lý bảo mật</span>
           </p>
           <p className="text-xs text-center text-gray-500">
-            Please keep this window open until the process completes
+            Vui lòng giữ cửa sổ này mở cho đến khi quá trình hoàn tất
           </p>
         </div>
       </div>

@@ -41,7 +41,7 @@ export function CheckoutButton({ cart, selectedAddress }: CheckoutButtonProps) {
 
   const handleCheckout = async () => {
     if (!selectedAddress) {
-      toast.error("Please select a shipping address");
+      toast.error("Vui lòng chọn địa chỉ giao hàng");
       return;
     }
 
@@ -49,7 +49,7 @@ export function CheckoutButton({ cart, selectedAddress }: CheckoutButtonProps) {
     const outOfStockItems = cart.filter((item) => item.product.stock === 0);
     if (outOfStockItems.length > 0) {
       toast.error(
-        "Some items are out of stock. Please remove them to continue."
+        "Một số sản phẩm đã hết hàng. Vui lòng xóa chúng khỏi giỏ để tiếp tục."
       );
       return;
     }
@@ -75,7 +75,7 @@ export function CheckoutButton({ cart, selectedAddress }: CheckoutButtonProps) {
 
   const handlePlaceOrder = async () => {
     if (!selectedAddress) {
-      toast.error("Please select a shipping address");
+      toast.error("Vui lòng chọn địa chỉ giao hàng");
       return;
     }
 
@@ -83,7 +83,7 @@ export function CheckoutButton({ cart, selectedAddress }: CheckoutButtonProps) {
     const outOfStockItems = cart.filter((item) => item.product.stock === 0);
     if (outOfStockItems.length > 0) {
       toast.error(
-        "Some items are out of stock. Please remove them to continue."
+        "Một số sản phẩm đã hết hàng. Vui lòng xóa chúng khỏi giỏ để tiếp tục."
       );
       return;
     }
@@ -151,7 +151,7 @@ export function CheckoutButton({ cart, selectedAddress }: CheckoutButtonProps) {
         {hasOutOfStockItems && (
           <div className="p-3 bg-red-50 border border-red-200 rounded-md">
             <p className="text-sm text-red-700">
-              Some items are out of stock and need to be removed
+              Một số sản phẩm đã hết hàng và cần được xóa bỏ
             </p>
           </div>
         )}
@@ -159,7 +159,7 @@ export function CheckoutButton({ cart, selectedAddress }: CheckoutButtonProps) {
         {!selectedAddress && (
           <div className="p-3 bg-orange-50 border border-orange-200 rounded-md">
             <p className="text-sm text-orange-700">
-              Please select a shipping address to continue
+              Vui lòng chọn địa chỉ giao hàng để tiếp tục
             </p>
           </div>
         )}
@@ -180,12 +180,12 @@ export function CheckoutButton({ cart, selectedAddress }: CheckoutButtonProps) {
             {actionType === "checkout" ? (
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                Redirecting...
+                Đang chuyển hướng...
               </div>
             ) : (
               <div className="flex items-center gap-2">
                 <CreditCard className="w-5 h-5" />
-                Proceed to Checkout
+                Tiến hành thanh toán
               </div>
             )}
           </Button>
@@ -205,20 +205,20 @@ export function CheckoutButton({ cart, selectedAddress }: CheckoutButtonProps) {
             {isPlacingOrder && actionType === "order" ? (
               <div className="flex items-center gap-2">
                 <div className="w-4 h-4 border-2 border-gray-600 border-t-transparent rounded-full animate-spin" />
-                Placing Order...
+                Đang đặt hàng...
               </div>
             ) : (
               <div className="flex items-center gap-2">
                 <Package className="w-5 h-5" />
-                Place Order (Pay Later)
+                Đặt hàng (Thanh toán sau)
               </div>
             )}
           </Button>
         </div>
 
         <div className="text-center text-xs text-muted-foreground">
-          <p>🔒 Secure checkout powered by Stripe</p>
-          <p>Your payment information is encrypted and secure</p>
+          <p>🔒 Thanh toán an toàn qua Stripe</p>
+          <p>Thông tin thanh toán của bạn được mã hóa bảo mật</p>
         </div>
       </div>
     </>
