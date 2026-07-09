@@ -319,7 +319,7 @@ const getProductBySlug = unstable_cache(
     }
   },
   ["product-by-slug"],
-  { revalidate: 1800, tags: ["products", "reviews"] }
+  { revalidate: 10, tags: ["products", "reviews"] }
 );
 
 /**
@@ -342,7 +342,7 @@ const getBrand = unstable_cache(
     }
   },
   ["brand-by-slug"],
-  { revalidate: 1800, tags: ["brands"] }
+  { revalidate: 10, tags: ["brands"] }
 );
 
 /**

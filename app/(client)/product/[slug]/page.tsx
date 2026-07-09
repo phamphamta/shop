@@ -15,6 +15,8 @@ import {
   generateBreadcrumbSchema,
 } from "@/lib/seo";
 
+export const revalidate = 10;
+
 type Props = {
   params: Promise<{ slug: string }>;
 };
