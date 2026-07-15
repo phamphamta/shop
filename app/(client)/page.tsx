@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import HomeCategories from "@/components/HomeCategories";
 import LatestBlog from "@/components/LatestBlog";
 import HomeBanner from "@/components/HomeBanner";
@@ -5,7 +6,19 @@ import ProductGrid from "@/components/ProductGrid";
 import ShopByBrands from "@/components/ShopByBrands";
 import ShopFeatures from "@/components/ShopFeatures";
 import { getCategories } from "@/sanity/queries";
-import { generateOrganizationSchema, generateWebsiteSchema } from "@/lib/seo";
+import {
+  generateOrganizationSchema,
+  generateWebsiteSchema,
+} from "@/lib/seo";
+
+export const metadata: Metadata = {
+  title: "ShopCart - Điểm đến mua sắm trực tuyến tin cậy của bạn",
+  description:
+    "Khám phá các sản phẩm chất lượng cao tại ShopCart.",
+  alternates: {
+    canonical: "https://shopcartvn.vercel.app",
+  },
+};
 
 export default async function Home() {
   const categories = await getCategories(8);

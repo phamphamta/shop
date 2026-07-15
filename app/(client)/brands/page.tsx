@@ -13,7 +13,16 @@ import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Package, Tag } from "lucide-react";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Thương hiệu | ShopCart",
+  description:
+    "Khám phá các thương hiệu uy tín tại ShopCart.",
+  alternates: {
+    canonical: "https://shopcartvn.vercel.app/brands",
+  },
+};
 export const revalidate = 10;
 
 const BrandsPage = async () => {

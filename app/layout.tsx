@@ -93,9 +93,9 @@ export const metadata: Metadata = {
   verification: {
     google: "ks5p73t0IJaeod4lghmwspmEYg-9QwoatNixBeywJ4c",
   },
-  alternates: {
-    canonical: "https://shopcartvn.vercel.app",
-  },
+  // alternates: {
+  //   canonical: "https://shopcartvn.vercel.app",
+  // },
 };
 
 const RootLayout = async ({ children }: { children: ReactNode }) => {

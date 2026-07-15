@@ -14,7 +14,16 @@ import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Package, Tag } from "lucide-react";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Danh mục | ShopCart",
+  description:
+    "Khám phá các danh mục sản phẩm tại ShopCart.",
+  alternates: {
+    canonical: "https://shopcartvn.vercel.app/category",
+  },
+};
 const CategoryPage = async () => {
   const categories: Category[] = await getCategories();
 

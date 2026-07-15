@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Container from "@/components/Container";
 import DynamicBreadcrumb from "@/components/DynamicBreadcrumb";
 import { Badge } from "@/components/ui/badge";
@@ -13,6 +14,14 @@ import { Calendar, Clock, ArrowRight, User, Eye, BookOpen } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
+export const metadata: Metadata = {
+  title: "Blog | ShopCart",
+  description:
+    "Khám phá các bài viết mới nhất tại ShopCart.",
+  alternates: {
+    canonical: "https://shopcartvn.vercel.app/blog",
+  },
+};
 // Cấu hình ngôn ngữ tiếng Việt cho dayjs
 dayjs.locale("vi");
 

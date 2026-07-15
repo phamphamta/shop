@@ -19,7 +19,16 @@ import {
   Heart,
 } from "lucide-react";
 import Link from "next/link";
+import type { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Khuyến mãi | ShopCart",
+  description:
+    "Các chương trình giảm giá mới nhất tại ShopCart.",
+  alternates: {
+    canonical: "https://shopcartvn.vercel.app/deal",
+  },
+};
 const DealPage = async () => {
   const [products] = await Promise.all([getDealProducts(), getCategories()]);
 
