@@ -42,13 +42,30 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${currentBrand.title} - Cửa hàng`,
+    title: `${currentBrand.title} - Cửa hàng | ShopCart`,
     description:
       currentBrand.description ||
       `Xem các sản phẩm từ thương hiệu ${currentBrand.title}`,
 
     alternates: {
       canonical: `/brands/${slug}`,
+    },
+
+    openGraph: {
+      title: `${currentBrand.title} - Cửa hàng | ShopCart`,
+      description:
+        currentBrand.description ||
+        `Xem các sản phẩm từ thương hiệu ${currentBrand.title}`,
+      url: `/brands/${slug}`,
+      type: "website",
+      images: [
+        {
+          url: "/og-image.jpg",
+          width: 1200,
+          height: 630,
+          alt: `${currentBrand.title} - ShopCart`,
+        },
+      ],
     },
   };
 }

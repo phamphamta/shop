@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "vi_VN",
-    url: "https://shopcartvn.vercel.app/",
+    // url: "https://shopcartvn.vercel.app/",
     siteName: "ShopCart",
     title: "ShopCart - Mua sắm trực tuyến chính hãng, giá tốt",
     description:
