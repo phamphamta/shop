@@ -55,15 +55,14 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, onClose }) => {
 
   const supportMenuItems = [
     { title: "Help Center", href: "/help", icon: HelpCircle },
-    { title: "Customer Service", href: "/support", icon: Phone },
+    { title: "Customer Service", href: "/help", icon: Phone },
     { title: "About Us", href: "/about", icon: Info },
   ];
 
   return (
     <div
-      className={`fixed inset-y-0 h-screen left-0 z-50 w-full bg-primary/50 shadow-xl transform ${
-        isOpen ? "translate-x-0" : "-translate-x-full"
-      } transition-transform ease-in-out duration-300`}
+      className={`fixed inset-y-0 h-screen left-0 z-50 w-full bg-primary/50 shadow-xl transform ${isOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform ease-in-out duration-300`}
     >
       <motion.div
         initial={{ opacity: 0 }}
@@ -152,11 +151,10 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, onClose }) => {
                   onClick={onClose}
                   key={item.title}
                   href={item.href}
-                  className={`flex items-center gap-3 p-2 rounded-md text-sm font-medium tracking-wide transition-all duration-200 hover:text-shop_light_green hover:bg-shop_dark_green/30 ${
-                    pathname === item.href
-                      ? "text-shop_light_green bg-shop_dark_green/50"
-                      : "text-zinc-300"
-                  }`}
+                  className={`flex items-center gap-3 p-2 rounded-md text-sm font-medium tracking-wide transition-all duration-200 hover:text-shop_light_green hover:bg-shop_dark_green/30 ${pathname === item.href
+                    ? "text-shop_light_green bg-shop_dark_green/50"
+                    : "text-zinc-300"
+                    }`}
                 >
                   <Icon size={18} />
                   {item.title}
@@ -179,11 +177,10 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, onClose }) => {
                   onClick={onClose}
                   key={item.title}
                   href={item.href}
-                  className={`flex items-center gap-3 p-2 rounded-md text-sm font-medium tracking-wide transition-all duration-200 hover:text-shop_light_green hover:bg-shop_dark_green/30 ${
-                    pathname === item.href
-                      ? "text-shop_light_green bg-shop_dark_green/50"
-                      : "text-zinc-300"
-                  }`}
+                  className={`flex items-center gap-3 p-2 rounded-md text-sm font-medium tracking-wide transition-all duration-200 hover:text-shop_light_green hover:bg-shop_dark_green/30 ${pathname === item.href
+                    ? "text-shop_light_green bg-shop_dark_green/50"
+                    : "text-zinc-300"
+                    }`}
                 >
                   <Icon size={18} />
                   {item.title}
@@ -261,11 +258,10 @@ const Sidebar: FC<SidebarProps> = ({ isOpen, onClose }) => {
                   onClick={onClose}
                   key={item.title}
                   href={item.href}
-                  className={`flex items-center gap-3 p-2 rounded-md text-sm font-medium tracking-wide transition-all duration-200 hover:text-shop_light_green hover:bg-shop_dark_green/30 ${
-                    pathname === item.href
-                      ? "text-shop_light_green bg-shop_dark_green/50"
-                      : "text-zinc-300"
-                  }`}
+                  className={`flex items-center gap-3 p-2 rounded-md text-sm font-medium tracking-wide transition-all duration-200 hover:text-shop_light_green hover:bg-shop_dark_green/30 ${pathname === item.href
+                    ? "text-shop_light_green bg-shop_dark_green/50"
+                    : "text-zinc-300"
+                    }`}
                 >
                   <Icon size={18} />
                   {item.title}

@@ -44,7 +44,7 @@ export const userAccountData = [
 // Các mục hỗ trợ
 export const supportData = [
   { title: "Trung tâm trợ giúp", href: "/help" },
-  { title: "Chăm sóc khách hàng", href: "/support" },
+  { title: "Chăm sóc khách hàng", href: "/help" },
   { title: "Theo dõi đơn hàng", href: "/track-order" },
   { title: "Chính sách đổi trả", href: "/returns" },
   { title: "Thông tin vận chuyển", href: "/shipping" },
