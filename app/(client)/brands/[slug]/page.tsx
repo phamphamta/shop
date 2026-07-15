@@ -26,8 +26,13 @@ type Props = {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
+
   const brands = await getAllBrands();
-  const currentBrand = brands.find((b: any) => b.slug?.current?.trim().toLowerCase() === slug.trim().toLowerCase());
+
+  const currentBrand = brands.find(
+    (b: any) =>
+      b.slug?.current?.trim().toLowerCase() === slug.trim().toLowerCase()
+  );
 
   if (!currentBrand) {
     return {
@@ -38,7 +43,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: `${currentBrand.title} - Cửa hàng`,
-    description: currentBrand.description || `Xem các sản phẩm từ thương hiệu ${currentBrand.title}`,
+    description:
+      currentBrand.description ||
+      `Xem các sản phẩm từ thương hiệu ${currentBrand.title}`,
+
+    alternates: {
+      canonical: `/brands/${slug}`,
+    },
   };
 }
 
