@@ -609,12 +609,12 @@ const generateOrderConfirmationHTML = (data: OrderConfirmationData): string => {
                New York, NY 10001, USA</p>
             <p>Cảm ơn bạn đã lựa chọn ShopCart!</p>
             
-            <div class="social-links">
-                <a href="https://www.youtube.com/@reactjsBD">Facebook</a> |
-                <a href="https://www.youtube.com/@reactjsBD">Twitter</a> |
-                <a href="https://www.youtube.com/@reactjsBD">Instagram</a> |
-                <a href="https://www.youtube.com/@reactjsBD">Hỗ trợ</a>
-            </div>
+            // <div class="social-links">
+            //     <a href="https://www.youtube.com/@reactjsBD">Facebook</a> |
+            //     <a href="https://www.youtube.com/@reactjsBD">Twitter</a> |
+            //     <a href="https://www.youtube.com/@reactjsBD">Instagram</a> |
+            //     <a href="https://www.youtube.com/@reactjsBD">Hỗ trợ</a>
+            // </div>
         </div>
     </div>
 </body>

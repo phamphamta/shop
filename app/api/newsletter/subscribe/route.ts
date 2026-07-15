@@ -375,12 +375,12 @@ function generateWelcomeEmailHTML(email: string): string {
                 gọi <a href="tel:+15551234567">+1 (555) 123-4567</a>
             </p>
             
-            <div class="social-links">
-                <a href="https://www.youtube.com/@reactjsBD">Facebook</a> |
-                <a href="https://www.youtube.com/@reactjsBD">Twitter</a> |
-                <a href="https://www.youtube.com/@reactjsBD">Instagram</a> |
-                <a href="https://www.youtube.com/@reactjsBD">YouTube</a>
-            </div>
+            // <div class="social-links">
+            //     <a href="https://www.youtube.com/@reactjsBD">Facebook</a> |
+            //     <a href="https://www.youtube.com/@reactjsBD">Twitter</a> |
+            //     <a href="https://www.youtube.com/@reactjsBD">Instagram</a> |
+            //     <a href="https://www.youtube.com/@reactjsBD">YouTube</a>
+            // </div>
             
             <div class="unsubscribe">
                 <p>
