@@ -610,10 +610,10 @@ const generateOrderConfirmationHTML = (data: OrderConfirmationData): string => {
             <p>Cảm ơn bạn đã lựa chọn ShopCart!</p>
             
             // <div class="social-links">
-            //     <a href="https://www.youtube.com/@reactjsBD">Facebook</a> |
-            //     <a href="https://www.youtube.com/@reactjsBD">Twitter</a> |
-            //     <a href="https://www.youtube.com/@reactjsBD">Instagram</a> |
-            //     <a href="https://www.youtube.com/@reactjsBD">Hỗ trợ</a>
+            //     <a href="https://www.facebook.com/">Facebook</a> |
+            //     <a href="https://www.twitter.com/">Twitter</a> |
+            //     <a href="https://www.instagram.com/">Instagram</a> |
+            //     <a href="https://www.youtube.com/">Hỗ trợ</a>
             // </div>
         </div>
     </div>
