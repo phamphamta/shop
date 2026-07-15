@@ -19,8 +19,25 @@ export const metadata: Metadata = {
   title: "Thương hiệu | ShopCart",
   description:
     "Khám phá các thương hiệu uy tín tại ShopCart.",
+
   alternates: {
     canonical: "https://shopcartvn.vercel.app/brands",
+  },
+
+  openGraph: {
+    title: "Thương hiệu | ShopCart",
+    description:
+      "Khám phá các thương hiệu uy tín tại ShopCart.",
+    url: "https://shopcartvn.vercel.app/brands",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ShopCart Cửa hàng trực tuyến",
+      },
+    ],
   },
 };
 export const revalidate = 10;

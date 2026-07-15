@@ -7,14 +7,32 @@ export const metadata: Metadata = {
   title: "Cửa hàng | ShopCart",
   description:
     "Khám phá tất cả sản phẩm tại ShopCart.",
+
   alternates: {
     canonical: "https://shopcartvn.vercel.app/shop",
+  },
+
+  openGraph: {
+    title: "Cửa hàng | ShopCart",
+    description:
+      "Khám phá tất cả sản phẩm tại ShopCart.",
+    url: "https://shopcartvn.vercel.app/shop",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ShopCart Cửa hàng trực tuyến",
+      },
+    ],
   },
 };
 
 const ShopPage = async () => {
   const categories = await getCategories();
   const brands = await getAllBrands();
+
   return (
     <div className="bg-white min-h-screen">
       <Suspense

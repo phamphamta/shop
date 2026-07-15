@@ -18,8 +18,25 @@ export const metadata: Metadata = {
   title: "Blog | ShopCart",
   description:
     "Khám phá các bài viết mới nhất tại ShopCart.",
+
   alternates: {
     canonical: "https://shopcartvn.vercel.app/blog",
+  },
+
+  openGraph: {
+    title: "Blog | ShopCart",
+    description:
+      "Khám phá các bài viết mới nhất tại ShopCart.",
+    url: "https://shopcartvn.vercel.app/blog",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ShopCart Cửa hàng trực tuyến",
+      },
+    ],
   },
 };
 // Cấu hình ngôn ngữ tiếng Việt cho dayjs

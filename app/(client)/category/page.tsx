@@ -20,8 +20,25 @@ export const metadata: Metadata = {
   title: "Danh mục | ShopCart",
   description:
     "Khám phá các danh mục sản phẩm tại ShopCart.",
+
   alternates: {
     canonical: "https://shopcartvn.vercel.app/category",
+  },
+
+  openGraph: {
+    title: "Danh mục | ShopCart",
+    description:
+      "Khám phá các danh mục sản phẩm tại ShopCart.",
+    url: "https://shopcartvn.vercel.app/category",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ShopCart Cửa hàng trực tuyến",
+      },
+    ],
   },
 };
 const CategoryPage = async () => {

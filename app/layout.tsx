@@ -29,12 +29,14 @@ const opensans = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://shopcartvn.vercel.app"),
+
   title: {
-    template: "%s | ShopCart - Mua sắm trực tuyến cao cấp",
-    default: "ShopCart - Điểm đến mua sắm trực tuyến tin cậy của bạn",
+    template: "%s | ShopCart",
+    default: "ShopCart - Mua sắm trực tuyến chính hãng, giá tốt",
   },
+
   description:
-    "Khám phá các sản phẩm tuyệt vời tại ShopCart, địa chỉ mua sắm trực tuyến đáng tin cậy của bạn với các mặt hàng chất lượng và dịch vụ chăm sóc khách hàng đặc biệt. Mua sắm đồ điện tử, thời trang, đồ gia dụng và nhiều thứ khác với tốc độ giao hàng nhanh chóng.",
+    "ShopCart - Mua sắm trực tuyến sản phẩm chính hãng, đa dạng danh mục, giá tốt cùng nhiều ưu đãi hấp dẫn và dịch vụ tiện lợi.",
   keywords: [
     "mua sắm trực tuyến",
     "thương mại điện tử",
@@ -57,11 +59,11 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "vi_VN",
-    url: "https://shopcartvn.vercel.app",
+    url: "https://shopcartvn.vercel.app/",
     siteName: "ShopCart",
-    title: "ShopCart - Điểm đến mua sắm trực tuyến tin cậy của bạn",
+    title: "ShopCart - Mua sắm trực tuyến chính hãng, giá tốt",
     description:
-      "Khám phá các sản phẩm tuyệt vời tại ShopCart, địa chỉ mua sắm trực tuyến đáng tin cậy của bạn với các mặt hàng chất lượng và dịch vụ chăm sóc khách hàng đặc biệt.",
+      "ShopCart cung cấp sản phẩm chất lượng với đa dạng danh mục, ưu đãi hấp dẫn và trải nghiệm mua sắm trực tuyến tiện lợi.",
     images: [
       {
         url: "/og-image.jpg",
@@ -73,9 +75,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "ShopCart - Điểm đến mua sắm trực tuyến tin cậy của bạn",
+    title: "ShopCart - Mua sắm trực tuyến chính hãng, giá tốt",
     description:
-      "Khám phá các sản phẩm tuyệt vời tại ShopCart, địa chỉ mua sắm trực tuyến đáng tin cậy của bạn với các mặt hàng chất lượng và dịch vụ chăm sóc khách hàng đặc biệt.",
+      "ShopCart cung cấp sản phẩm chất lượng với đa dạng danh mục, ưu đãi hấp dẫn và trải nghiệm mua sắm trực tuyến tiện lợi.",
     images: ["/og-image.jpg"],
     creator: "@shopcart",
   },
@@ -93,9 +95,9 @@ export const metadata: Metadata = {
   verification: {
     google: "ks5p73t0IJaeod4lghmwspmEYg-9QwoatNixBeywJ4c",
   },
-  // alternates: {
-  //   canonical: "https://shopcartvn.vercel.app",
-  // },
+  alternates: {
+    canonical: "https://shopcartvn.vercel.app/",
+  },
 };
 
 const RootLayout = async ({ children }: { children: ReactNode }) => {
@@ -104,7 +106,10 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
     <ClerkProvider>
       <html lang="vi">
         <Head>
-          <meta name="google-adsense-account" content={GADSENSE_CLIENT_ID} />
+          <meta
+            name="google-adsense-account"
+            content={GADSENSE_CLIENT_ID}
+          />
         </Head>
         <body
           className={`${poppins.variable} ${raleway.variable} ${opensans.variable} antialiased`}
@@ -130,7 +135,7 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
           <Script
             async
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${GADSENSE_CLIENT_ID}`}
-            strategy="beforeInteractive"
+            strategy="afterInteractive"
           />
         </body>
       </html>

@@ -11,7 +11,7 @@ export const contactConfig = {
     city: process.env.NEXT_PUBLIC_COMPANY_CITY || "New York, NY 10001, USA",
     description:
       process.env.NEXT_PUBLIC_COMPANY_DESCRIPTION ||
-      "Khám phá hàng ngàn sản phẩm tuyệt vời tại ShopCart - nền tảng mua sắm trực tuyến uy tín hàng đầu cho các mặt hàng chất lượng cao cùng dịch vụ chăm sóc khách hàng vượt trội.",
+      "ShopCart cung cấp sản phẩm chất lượng, mua sắm trực tuyến tiện lợi cùng nhiều ưu đãi hấp dẫn.",
   },
   businessHours: {
     weekday:

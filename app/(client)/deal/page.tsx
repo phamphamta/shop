@@ -25,8 +25,25 @@ export const metadata: Metadata = {
   title: "Khuyến mãi | ShopCart",
   description:
     "Các chương trình giảm giá mới nhất tại ShopCart.",
+
   alternates: {
     canonical: "https://shopcartvn.vercel.app/deal",
+  },
+
+  openGraph: {
+    title: "Khuyến mãi | ShopCart",
+    description:
+      "Các chương trình giảm giá mới nhất tại ShopCart.",
+    url: "https://shopcartvn.vercel.app/deal",
+    type: "website",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "ShopCart Cửa hàng trực tuyến",
+      },
+    ],
   },
 };
 const DealPage = async () => {
