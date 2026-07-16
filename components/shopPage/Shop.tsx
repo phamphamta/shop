@@ -11,7 +11,7 @@ import NoProductAvailable from "../product/NoProductAvailable";
 import BrandList from "./BrandList";
 import { useSearchParams } from "next/navigation";
 import PriceList from "./PriceList";
-//hihi
+//hihigi
 interface Props {
   categories: Category[];
   brands: BRANDS_QUERY_RESULT;

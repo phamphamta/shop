@@ -6,6 +6,7 @@ import FooterTop from "./layout/FooterTop";
 import SocialMedia from "./common/SocialMedia";
 import NewsletterForm from "./NewsletterForm";
 import Script from "next/script";
+import Image from "next/image";
 
 const Footer = () => {
   return (
@@ -91,13 +92,15 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <img
+              <Image
                 src="https://images.dmca.com/Badges/dmca_protected_sml_120m.png?ID=05b9a588-ef47-46f4-a63d-9b648ca21d06"
                 alt="DMCA.com Protection Status"
+                width={120}
+                height={24}
               />
             </a>
           </div>
-          <Script src="https://images.dmca.com/Badges/DMCABadgeHelper.min.js" strategy="afterInteractive" />
+
         </div>
       </div>
     </footer>
