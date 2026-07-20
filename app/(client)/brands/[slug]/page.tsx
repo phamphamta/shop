@@ -148,9 +148,9 @@ const BrandPage = async ({ params }: { params: Promise<{ slug: string }> }) => {
                   </div>
                 )}
                 <div className="flex-1">
-                  <Title className="text-2xl lg:text-3xl font-bold text-shop_dark_green mb-2">
+                  <h1 className="text-2xl lg:text-3xl font-bold text-shop_dark_green mb-2">
                     {brandTitle}
-                  </Title>
+                  </h1>
                   {currentBrand?.description && (
                     <p className="text-dark-text text-sm lg:text-base line-clamp-2">
                       {currentBrand.description}

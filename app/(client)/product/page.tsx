@@ -48,9 +48,9 @@ const ProductPage = async () => {
             <div className="max-w-3xl">
               <div className="flex items-center gap-3 mb-4">
                 <Package className="w-8 h-8" />
-                <Title className="text-4xl md:text-5xl font-bold text-white mb-0">
+                <h1 className="text-4xl md:text-5xl font-bold text-white mb-0">
                   Danh mục sản phẩm
-                </Title>
+                </h1>
               </div>
 
               <p className="text-lg md:text-xl text-white/90 leading-relaxed mb-8">

@@ -66,9 +66,9 @@ const BrandsPage = async () => {
         </div>
 
         <div className="text-center mb-10">
-          <Title className="text-3xl lg:text-4xl font-bold text-shop_dark_green mb-3">
+          <h1 className="text-3xl lg:text-4xl font-bold text-shop_dark_green mb-3">
             Mua sắm theo Thương hiệu
-          </Title>
+          </h1>
           <p className="text-base lg:text-lg text-dark-text max-w-2xl mx-auto mb-6">
             Khám phá hàng loạt sản phẩm từ các thương hiệu hàng đầu thế giới mà chúng tôi phân phối chính hãng.
           </p>
