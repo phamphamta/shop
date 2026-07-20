@@ -65,9 +65,9 @@ const CategoryPage = async () => {
         </div>
 
         <div className="text-center mb-10">
-          <Title className="text-3xl lg:text-4xl font-bold text-shop_dark_green mb-3">
+          <h1 className="text-3xl lg:text-4xl font-bold text-shop_dark_green mb-3">
             Mua sắm theo Danh mục
-          </Title>
+          </h1>
           <p className="text-base lg:text-lg text-dark-text max-w-2xl mx-auto mb-6">
             Khám phá hàng loạt sản phẩm của chúng tôi được phân loại theo từng danh mục.
             Dễ dàng tìm thấy chính xác những gì bạn đang tìm kiếm.
