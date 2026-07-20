@@ -28,7 +28,9 @@ async function UserOrdersPage({ searchParams }: OrdersPageProps) {
   return (
     <div className="space-y-6">
       <div>
-        <Title>Đơn hàng của tôi</Title>
+        <h1 className="text-2xl font-bold">
+          Đơn hàng của tôi
+        </h1>
         {totalCount > 0 && (
           <p className="text-sm text-muted-foreground mt-2">
             Hiển thị {orders.length} trên tổng số {totalCount} đơn hàng

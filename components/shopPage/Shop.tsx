@@ -80,9 +80,9 @@ const Shop = ({ categories, brands }: Props) => {
         <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
           <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
             <div>
-              <Title className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
+              <h1 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">
                 Sản phẩm
-              </Title>
+              </h1>
               <p className="text-gray-600 text-sm">
                 Khám phá các sản phẩm phù hợp với nhu cầu của bạn
               </p>
