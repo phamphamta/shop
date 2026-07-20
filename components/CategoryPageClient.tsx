@@ -58,9 +58,9 @@ const CategoryPageClient = ({
               )}
 
               <div className="flex-1">
-                <Title className="text-2xl lg:text-3xl font-bold text-shop_dark_green mb-2">
+                <h1 className="text-2xl lg:text-3xl font-bold text-shop_dark_green mb-2">
                   {categoryTitle}
-                </Title>
+                </h1>
 
                 {/* Category Stats */}
                 <div className="flex items-center gap-4 text-sm text-dark-text mb-3">

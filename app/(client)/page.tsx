@@ -42,6 +42,9 @@ export default async function Home() {
           __html: JSON.stringify(websiteSchema),
         }}
       />
+      <h1 className="sr-only">
+        ShopCart - Điểm đến mua sắm trực tuyến tin cậy của bạn
+      </h1>
 
       <HomeBanner />
       <div className="py-10">
