@@ -23,9 +23,10 @@ interface Props {
     _key: string;
   }>;
   isStock?: number;
+  title?: string;
 }
 
-const ImageView = ({ images = [], isStock }: Props) => {
+const ImageView = ({ images = [], isStock, title }: Props) => {
   const [active, setActive] = useState(images[0]);
   return (
     <div className="w-full space-y-2 md:space-y-4">
@@ -40,28 +41,26 @@ const ImageView = ({ images = [], isStock }: Props) => {
         >
           <Image
             src={urlFor(active).url()}
-            alt="productImage"
+            alt={title || "Product image"}
             width={700}
             height={700}
             priority
-            className={`w-full h-96 max-h-[550px] min-h-[500px] object-contain group-hover:scale-110 hoverEffect rounded-md ${
-              isStock === 0 ? "opacity-50" : ""
-            }`}
+            className={`w-full h-96 max-h-[550px] min-h-[500px] object-contain group-hover:scale-110 hoverEffect rounded-md ${isStock === 0 ? "opacity-50" : ""
+              }`}
           />
         </motion.div>
       </AnimatePresence>
       <div className="grid grid-cols-6 gap-2 h-20 md:h-24">
-        {images.map((image) => (
+        {images.map((image, index) => (
           <button
             key={image._key}
             onClick={() => setActive(image)}
-            className={`border rounded-md overflow-hidden ${
-              active._key === image._key ? "ring-1 ring-dark-color" : ""
-            }`}
+            className={`border rounded-md overflow-hidden ${active._key === image._key ? "ring-1 ring-dark-color" : ""
+              }`}
           >
             <Image
               src={urlFor(image).url()}
-              alt={`Thumbnail ${image._key}`}
+              alt={`${title || "Product"} - Thumbnail ${index + 1}`}
               width={100}
               height={100}
               className="w-full h-auto object-contain"

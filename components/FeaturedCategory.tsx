@@ -20,7 +20,7 @@ const FeaturedCategory = async () => {
               {category?.image && (
                 <Image
                   src={urlFor(category?.image).url()}
-                  alt="categoryImage"
+                  alt={category?.title || "Category image"}
                   width={100}
                   height={100}
                   className="w-24 h-24 object-cover group-hover:scale-110 hoverEffect"

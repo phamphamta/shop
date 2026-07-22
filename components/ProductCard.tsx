@@ -20,12 +20,12 @@ const ProductCard = memo(({ product }: { product: Product }) => {
               className={`w-full h-64 object-contain overflow-hidden transition-transform bg-shop_light_bg duration-500 
                 ${product?.stock !== 0 ? "group-hover:scale-105" : "opacity-50"
                 }`}
-              alt="productImage"
+              alt={product?.name || "Product image"}
               loading="lazy"
             />
             {/* <Image
               src={urlFor(product.images[0]).url()}
-              alt="productImage"
+              alt={product?.name || "Product image"}
               width={500}
               height={500}
               priority
@@ -88,8 +88,8 @@ const ProductCard = memo(({ product }: { product: Product }) => {
           <p className="font-medium">Còn hàng</p>
           <p
             className={`${product?.stock === 0
-                ? "text-red-600"
-                : "text-shop_dark_green/80 font-semibold"
+              ? "text-red-600"
+              : "text-shop_dark_green/80 font-semibold"
               }`}
           >
             {(product?.stock as number) > 0 ? product?.stock : "Hết hàng"}

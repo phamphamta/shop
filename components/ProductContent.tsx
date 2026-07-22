@@ -93,7 +93,7 @@ const ProductContent = ({
           {/* Product Images */}
           {product?.images && (
             <ProductImageWrapper>
-              <ImageView images={product?.images} isStock={product?.stock} />
+              <ImageView images={product?.images} isStock={product?.stock} title={product?.name} />
             </ProductImageWrapper>
           )}
 
