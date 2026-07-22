@@ -24,7 +24,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Khuyến mãi | ShopCart",
   description:
-    "Các chương trình giảm giá mới nhất tại ShopCart.",
+    "Cập nhật các chương trình khuyến mãi mới nhất tại ShopCart với nhiều ưu đãi hấp dẫn dành cho điện thoại, laptop, màn hình và phụ kiện công nghệ.",
 
   alternates: {
     canonical: "https://shopcartvn.vercel.app/deal",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Khuyến mãi | ShopCart",
     description:
-      "Các chương trình giảm giá mới nhất tại ShopCart.",
+      "Cập nhật các chương trình khuyến mãi mới nhất tại ShopCart với nhiều ưu đãi hấp dẫn dành cho điện thoại, laptop, màn hình và phụ kiện công nghệ.",
     url: "https://shopcartvn.vercel.app/deal",
     type: "website",
     images: [

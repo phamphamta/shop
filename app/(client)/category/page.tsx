@@ -19,7 +19,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Danh mục | ShopCart",
   description:
-    "Khám phá các danh mục sản phẩm tại ShopCart.",
+    "Khám phá các danh mục sản phẩm tại ShopCart gồm điện thoại, laptop, máy tính để bàn, màn hình, linh kiện và phụ kiện công nghệ chính hãng.",
 
   alternates: {
     canonical: "https://shopcartvn.vercel.app/category",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Danh mục | ShopCart",
     description:
-      "Khám phá các danh mục sản phẩm tại ShopCart.",
+      "Khám phá các danh mục sản phẩm tại ShopCart gồm điện thoại, laptop, máy tính để bàn, màn hình, linh kiện và phụ kiện công nghệ chính hãng.",
     url: "https://shopcartvn.vercel.app/category",
     type: "website",
     images: [

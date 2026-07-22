@@ -17,7 +17,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Blog | ShopCart",
   description:
-    "Khám phá các bài viết mới nhất tại ShopCart.",
+    "Đọc các bài viết mới nhất về công nghệ, đánh giá sản phẩm, hướng dẫn sử dụng và mẹo mua sắm thông minh tại ShopCart.",
 
   alternates: {
     canonical: "https://shopcartvn.vercel.app/blog",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Blog | ShopCart",
     description:
-      "Khám phá các bài viết mới nhất tại ShopCart.",
+      "Đọc các bài viết mới nhất về công nghệ, đánh giá sản phẩm, hướng dẫn sử dụng và mẹo mua sắm thông minh tại ShopCart.",
     url: "https://shopcartvn.vercel.app/blog",
     type: "website",
     images: [

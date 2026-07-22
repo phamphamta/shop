@@ -18,7 +18,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Thương hiệu | ShopCart",
   description:
-    "Khám phá các thương hiệu uy tín tại ShopCart.",
+    "Khám phá các thương hiệu công nghệ nổi tiếng như Apple, Samsung, ASUS, Dell, Lenovo, Logitech và nhiều thương hiệu chính hãng tại ShopCart.",
 
   alternates: {
     canonical: "https://shopcartvn.vercel.app/brands",
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Thương hiệu | ShopCart",
     description:
-      "Khám phá các thương hiệu uy tín tại ShopCart.",
+      "Khám phá các thương hiệu công nghệ nổi tiếng như Apple, Samsung, ASUS, Dell, Lenovo, Logitech và nhiều thương hiệu chính hãng tại ShopCart.",
     url: "https://shopcartvn.vercel.app/brands",
     type: "website",
     images: [
