@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: `${currentBrand.title} - Cửa hàng | ShopCart`,
     description:
       currentBrand.description ||
-      `Xem các sản phẩm từ thương hiệu ${currentBrand.title}`,
+      `Khám phá các sản phẩm chính hãng từ thương hiệu ${currentBrand.title} tại ShopCart. Mua sắm điện thoại, laptop, phụ kiện và linh kiện máy tính với giá tốt, nhiều ưu đãi và bảo hành chính hãng.`,
 
     alternates: {
       canonical: `/brands/${slug}`,
@@ -55,7 +55,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${currentBrand.title} - Cửa hàng | ShopCart`,
       description:
         currentBrand.description ||
-        `Xem các sản phẩm từ thương hiệu ${currentBrand.title}`,
+        `Khám phá các sản phẩm chính hãng từ thương hiệu ${currentBrand.title} tại ShopCart. Mua sắm điện thoại, laptop, phụ kiện và linh kiện máy tính với giá tốt, nhiều ưu đãi và bảo hành chính hãng.`,
       url: `/brands/${slug}`,
       type: "website",
       images: [
