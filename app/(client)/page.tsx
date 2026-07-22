@@ -14,7 +14,7 @@ import {
 export const metadata: Metadata = {
   title: "ShopCart - Điểm đến mua sắm trực tuyến tin cậy của bạn",
   description:
-    "ShopCart là cửa hàng công nghệ trực tuyến cung cấp điện thoại, laptop, máy tính để bàn, màn hình, linh kiện và phụ kiện chính hãng với giá tốt, nhiều ưu đãi và bảo hành chính hãng.",
+    "ShopCart cung cấp điện thoại, laptop, máy tính để bàn, màn hình, linh kiện và phụ kiện công nghệ chính hãng với giá tốt, nhiều ưu đãi và bảo hành.",
   alternates: {
     canonical: "https://shopcartvn.vercel.app",
   },
