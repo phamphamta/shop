@@ -137,6 +137,21 @@ const RootLayout = async ({ children }: { children: ReactNode }) => {
             src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${GADSENSE_CLIENT_ID}`}
             strategy="afterInteractive"
           />
+
+          {/* Google Analytics (gtag.js) */}
+          <Script
+            src="https://www.googletagmanager.com/gtag/js?id=G-KPCD88996X"
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', 'G-KPCD88996X');
+            `}
+          </Script>
         </body>
       </html>
     </ClerkProvider>
