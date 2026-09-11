@@ -37,7 +37,7 @@ A modern, feature-rich e-commerce application built with Next.js 16, TypeScript,
 - 🎨 **Custom Admin Branding** - Customize admin panel
 - 🚀 **Priority Support & Updates** - Fast support and early access to features
 
-[**Upgrade to Premium →**](https://www.buymeacoffee.com/reactbd)
+
 
 ---
 
@@ -718,7 +718,7 @@ Built with amazing open-source technologies:
 - 🎨 Custom Branding
 - 🚀 Priority Support
 
-[**Upgrade Now →**](https://www.buymeacoffee.com/reactbd)
+
 
 ---
 
